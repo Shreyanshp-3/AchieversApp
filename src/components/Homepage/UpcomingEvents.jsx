@@ -9,8 +9,8 @@ import {
     useBreakpointValue,
 } from "@chakra-ui/react";
 import { MdLocationOn, MdAccessTime } from "react-icons/md";
-import event1 from '../theme/events1.png';
-import event2 from '../theme/event2.png';
+import event1 from '../../theme/events1.png';
+import event2 from '../../theme/event2.png';
 
 export default function UpcomingEvents() {
     const events = [

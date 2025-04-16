@@ -1,7 +1,7 @@
 import { Box, Flex, Heading, Text, Image } from "@chakra-ui/react";
 
-import heroImage from "../theme/1.png";
-import heroImage2 from "../theme/2.png";
+import heroImage from "../../theme/1.png";
+import heroImage2 from "../../theme/2.png";
 
 export default function AboutSection() {
     return (

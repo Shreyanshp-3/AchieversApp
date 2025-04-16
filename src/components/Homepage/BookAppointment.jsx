@@ -1,5 +1,5 @@
 import { Box, Button, Flex, Heading, Image, Text } from "@chakra-ui/react";
-import appointmentBg from "../theme/ILLUSTRATION.png";
+import appointmentBg from "../../theme/ILLUSTRATION.png";
 
 export default function BookAppointment() {
     return (

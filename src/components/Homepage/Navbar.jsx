@@ -3,7 +3,6 @@ import {
   Box,
   Flex,
   HStack,
-  Link,
   IconButton,
   Button,
   useDisclosure,
@@ -21,32 +20,36 @@ import {
   DrawerBody,
 } from "@chakra-ui/react";
 import { HamburgerIcon, CloseIcon, ChevronDownIcon, ChevronUpIcon } from "@chakra-ui/icons";
+import { Link as RouterLink } from "react-router-dom";
+import { Link as ChakraLink } from "@chakra-ui/react";
 
-const NavLink = ({ children, isActive = false }) => (
-  <Link
-    px={3}
-    py={2}
-    rounded={"md"}
-    fontFamily="Montserrat"
-    fontSize="16px"
-    fontWeight="500"
-    color={isActive ? "#000000" : "#999999"}
-    _hover={{
-      textDecoration: "none",
-      color: "#000000",
-      bg: "blue.50",
-    }}
-    href={"#"}
-  >
-    {children}
-  </Link>
-);
+
 
 export default function Navbar() {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [servicesOpen, setServicesOpen] = useState(false);
 
   const toggleServices = () => setServicesOpen(!servicesOpen);
+  const NavLink = ({ to, children, isActive = false }) => (
+    <ChakraLink
+      as={RouterLink}
+      to={to}
+      px={3}
+      py={2}
+      rounded={"md"}
+      fontFamily="Montserrat"
+      fontSize="16px"
+      fontWeight="500"
+      color={isActive ? "#000000" : "#999999"}
+      _hover={{
+        textDecoration: "none",
+        color: "#000000",
+        bg: "blue.50",
+      }}
+    >
+      {children}
+    </ChakraLink>
+  );
 
   return (
     <Box bg="white" px={4} boxShadow="sm" position="sticky" top="0" zIndex="999">
@@ -62,8 +65,8 @@ export default function Navbar() {
         />
 
         <HStack spacing={6} alignItems={"center"} display={{ base: "none", md: "flex" }}>
-          <NavLink isActive>Home</NavLink>
-          <NavLink>About Us</NavLink>
+          <NavLink to="/" isActive>Home</NavLink>
+          <NavLink to="/aboutus" >About Us</NavLink>
 
           <Menu>
             <MenuButton
@@ -85,6 +88,7 @@ export default function Navbar() {
               <MenuItem>Test Prep</MenuItem>
               <MenuItem>Profile Building</MenuItem>
               <MenuItem>Visa Counselling</MenuItem>
+              <MenuItem>Application Counselling</MenuItem>
             </MenuList>
           </Menu>
 
@@ -128,30 +132,13 @@ export default function Navbar() {
               <VStack align="start" spacing={4}>
                 {/* Active Home */}
                 <Box w="full" bg="#F0F4FF" borderRadius="md">
-                  <Text
-                    px={4}
-                    py={2}
-                    fontFamily="Montserrat"
-                    fontWeight="bold"
-                    fontSize="16px"
-                    color="#134BE4"
-                    borderLeft="4px solid #134BE4"
-                  >
+                  <NavLink to="/" isActive>
                     Home
-                  </Text>
+                  </NavLink>
                 </Box>
 
                 {/* About Us */}
-                <Text
-                  px={4}
-                  py={2}
-                  fontFamily="Montserrat"
-                  fontWeight="medium"
-                  fontSize="16px"
-                  color="#999999"
-                >
-                  About Us
-                </Text>
+                <NavLink to="/aboutus">About Us</NavLink>
 
                 {/* Toggleable Services */}
                 <Box w="full">
@@ -175,34 +162,16 @@ export default function Navbar() {
                   </Button>
                   {servicesOpen && (
                     <VStack align="start" spacing={2} mt={2} pl={6}>
-                      <Text fontSize="14px" color="#999999">SERVICE 01</Text>
-                      <Text fontSize="14px" color="#999999">SERVICE 02</Text>
-                      <Text fontSize="14px" color="#999999">SERVICE 03</Text>
-                      <Text fontSize="14px" color="#999999">SERVICE 04</Text>
+                      <NavLink to="/testprep">Test Prep</NavLink>
+                      <NavLink to="/profilebuilding">Profile Building</NavLink>
+                      <NavLink to="/visacounselling">Visa Counselling</NavLink>
+                      <NavLink to="/applicationcounselling">Application Counselling</NavLink>
                     </VStack>
                   )}
                 </Box>
 
-                <Text
-                  px={4}
-                  py={2}
-                  fontFamily="Montserrat"
-                  fontWeight="medium"
-                  fontSize="16px"
-                  color="#999999"
-                >
-                  Testimonials
-                </Text>
-                <Text
-                  px={4}
-                  py={2}
-                  fontFamily="Montserrat"
-                  fontWeight="medium"
-                  fontSize="16px"
-                  color="#999999"
-                >
-                  Contact Us
-                </Text>
+                <NavLink to="/testimonials">Testimonials</NavLink>
+                <NavLink to="/contact">Contact Us</NavLink>
               </VStack>
 
               {/* Bottom buttons */}
@@ -234,6 +203,7 @@ export default function Navbar() {
                 </Button>
               </VStack>
             </DrawerBody>
+
           </DrawerContent>
         </Drawer>
       )}

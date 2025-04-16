@@ -8,7 +8,7 @@ import {
     Image,
     Container,
 } from "@chakra-ui/react";
-import heroImage from "../img/bannerphotos/edit2.jpg"; // Adjust path if needed
+import heroImage from "../../img/bannerphotos/edit2.jpg"; // Adjust path if needed
 
 export default function HeroSection() {
     return (

@@ -1,30 +1,15 @@
-import AboutSection from './components/AboutSection';
-import BookAppointment from './components/BookAppointment';
-import ExpertTrainers from './components/ExpertTrainers';
-import Footer from './components/Footer';
-import HeroSection from './components/HeroSection';
-import Navbar from './components/Navbar';
-import Testimonials from './components/Testimonials';
-import UpcomingEvents from './components/UpcomingEvents';
-import WhatWeOffer from './components/Whatweoffer';
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import AboutUs from './components/Aboutus';
+import Homepage from './components/Homepage';
 
 function App() {
   return (
-    <>
-      <Navbar />
-      <HeroSection />
-      <AboutSection />
-      <WhatWeOffer />
-      <BookAppointment />
-      <ExpertTrainers />
-      <Testimonials />
-      <UpcomingEvents />
-      <Footer />
-      {/* <br/>
-      <br/>
-      <br/>
-      <br/> */}
-    </>
+    <Router>
+      <Routes>
+        <Route path="/" element={<Homepage />} />
+        <Route path="/aboutus" element={<AboutUs />} />
+      </Routes>
+    </Router>
   );
 }
 
