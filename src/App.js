@@ -1,5 +1,5 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import AboutUs from './components/Aboutus';
+import AboutUs from './components/Aboutus/Aboutus';
 import Homepage from './components/Homepage';
 
 function App() {

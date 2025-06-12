@@ -114,7 +114,8 @@ export default function AboutSection() {
                             fontWeight="400"
                             color="black"
                             fontFamily="Montserrat"
-                            lineHeight="1.8"
+                            lineHeight="1.6"
+                            textAlign="justify"
                         >
                             In the dense overseas education industry, Achievers Academy stands tall with a
                             formidable reputation, crafted over 24 years of immaculate counselling experience.

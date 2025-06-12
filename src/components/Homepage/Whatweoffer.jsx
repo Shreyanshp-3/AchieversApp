@@ -119,6 +119,8 @@ export default function WhatWeOffer() {
               _hover={{
                 transform: "scale(1.03)",
                 boxShadow: "lg",
+                borderRadius: "lg",
+                overflow: "hidden",
               }}
             >
               <Image
@@ -127,7 +129,7 @@ export default function WhatWeOffer() {
                 objectFit="cover"
                 width="100%"
                 height="100%"
-                opacity={0.85}
+                opacity={0.95}
                 transition="transform 0.5s ease"
               />
 

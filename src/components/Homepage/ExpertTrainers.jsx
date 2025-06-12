@@ -7,14 +7,14 @@ export default function ExpertTrainers() {
             role: "English Faculty",
             img: "/trainer1.jpg", // Replace with actual image
             description:
-                "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam",
+                "With 30 years of teaching experience behing her, Mrs. Desai dispenses expert tips and techniques to for the GRE Verbal and AWA sections that engage students across all diaspora. When it comes to the much dreaded speaking section of TOFEL, there's no looking beyond her. Her technical mentioshup is also highly sought after by students from all corners of the country and beyond.",
         },
         {
             name: "Avinash Shukla",
             role: "English Faculty",
             img: "/trainer2.jpg",
             description:
-                "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam",
+                "Attunded to students requirnments, Mr. Andhari makes Math fun! Never taking Math fundamentals for granted, he upwraps every topic from scratch and extracts tons of practice from aspirants His unbridled love fot he subject puts every student at ease. This yound albeit dedicated faculty has a strong student connect that makes his pedagogy very accessible too",
         },
     ];
 
@@ -35,7 +35,7 @@ export default function ExpertTrainers() {
                 justify="center"
                 align="center"
                 wrap="wrap"
-                gap={8}
+                gap={12}
                 maxW="1200px"
                 mx="auto"
             >
@@ -47,7 +47,8 @@ export default function ExpertTrainers() {
                         borderRadius="lg"
                         p={6}
                         w={{ base: "100%", md: "48%" }}
-                        maxW="470px"
+                        maxW="550px"
+                        minH="320px"
                         transition="all 0.3s ease"
                         _hover={{ boxShadow: "lg", transform: "translateY(-4px)" }}
                     >
@@ -72,7 +73,7 @@ export default function ExpertTrainers() {
                         <Text
                             fontSize={{ base: "sm", md: "md" }}
                             color="gray.700"
-                            lineHeight="1.7"
+                            lineHeight="1.5"
                         >
                             {trainer.description}
                         </Text>
