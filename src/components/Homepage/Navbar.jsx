@@ -57,6 +57,7 @@ export default function Navbar() {
         <Box fontWeight="bold" fontFamily="Montserrat">🎓 Achievers</Box>
 
         <IconButton
+   
           size={"md"}
           icon={isOpen ? <CloseIcon /> : <HamburgerIcon />}
           aria-label={"Open Menu"}
@@ -93,7 +94,7 @@ export default function Navbar() {
           </Menu>
 
           <NavLink>Testimonials</NavLink>
-          <NavLink>Contact Us</NavLink>
+          <NavLink to="/contactus" >Contact Us</NavLink>
         </HStack>
 
         <Button
@@ -105,6 +106,7 @@ export default function Navbar() {
           _hover={{ bg: "#0f3fbe" }}
           size="sm"
           p="6"
+          // mt={2}
           display={{ base: "none", md: "inline-flex" }}
         >
           Book an Appointment
@@ -119,14 +121,16 @@ export default function Navbar() {
               borderBottomWidth="1px"
               textAlign="center"
               fontSize="14px"
+              mb={4}
+              mt={2}
               fontWeight="700"
               color="#134BE4"
               fontFamily="Montserrat"
               textTransform="uppercase"
             >
-              Main Menu
+              Quick Links
             </DrawerHeader>
-            <DrawerCloseButton />
+            <DrawerCloseButton      mt={2} />
 
             <DrawerBody mt={4} display="flex" flexDirection="column" justifyContent="space-between" pb={6}>
               <VStack align="start" spacing={4}>
