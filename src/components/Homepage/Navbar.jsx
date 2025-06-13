@@ -7,7 +7,7 @@ import {
   Button,
   useDisclosure,
   VStack,
-  Text,
+
   Menu,
   MenuButton,
   MenuList,
@@ -57,7 +57,7 @@ export default function Navbar() {
         <Box fontWeight="bold" fontFamily="Montserrat">🎓 Achievers</Box>
 
         <IconButton
-   
+
           size={"md"}
           icon={isOpen ? <CloseIcon /> : <HamburgerIcon />}
           aria-label={"Open Menu"}
@@ -86,10 +86,12 @@ export default function Navbar() {
               Services
             </MenuButton>
             <MenuList>
-              <MenuItem>Test Prep</MenuItem>
-              <MenuItem>Profile Building</MenuItem>
-              <MenuItem>Visa Counselling</MenuItem>
-              <MenuItem>Application Counselling</MenuItem>
+              <MenuItem>  <NavLink to="/testprep" >Test Prep</NavLink></MenuItem>
+
+
+              <MenuItem>  <NavLink to="/testprep" >Profile Building</NavLink></MenuItem>
+              <MenuItem>  <NavLink to="/testprep" >Visa Counselling</NavLink></MenuItem>
+              <MenuItem>  <NavLink to="/testprep" >Application Counselling</NavLink></MenuItem>
             </MenuList>
           </Menu>
 
@@ -130,7 +132,7 @@ export default function Navbar() {
             >
               Quick Links
             </DrawerHeader>
-            <DrawerCloseButton      mt={2} />
+            <DrawerCloseButton mt={2} />
 
             <DrawerBody mt={4} display="flex" flexDirection="column" justifyContent="space-between" pb={6}>
               <VStack align="start" spacing={4}>
