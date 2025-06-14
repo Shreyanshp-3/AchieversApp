@@ -18,43 +18,53 @@ import {
   DrawerCloseButton,
   DrawerHeader,
   DrawerBody,
+  Image
 } from "@chakra-ui/react";
 import { HamburgerIcon, CloseIcon, ChevronDownIcon, ChevronUpIcon } from "@chakra-ui/icons";
 import { Link as RouterLink } from "react-router-dom";
 import { Link as ChakraLink } from "@chakra-ui/react";
+import { useLocation } from "react-router-dom";
 
-
+import logo from "../../img/mainlogo/logoname.png";
 
 export default function Navbar() {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [servicesOpen, setServicesOpen] = useState(false);
+  const location = useLocation();
 
   const toggleServices = () => setServicesOpen(!servicesOpen);
-  const NavLink = ({ to, children, isActive = false }) => (
-    <ChakraLink
-      as={RouterLink}
-      to={to}
-      px={3}
-      py={2}
-      rounded={"md"}
-      fontFamily="Montserrat"
-      fontSize="16px"
-      fontWeight="500"
-      color={isActive ? "#000000" : "#999999"}
-      _hover={{
-        textDecoration: "none",
-        color: "#000000",
-        bg: "blue.50",
-      }}
-    >
-      {children}
-    </ChakraLink>
-  );
+  const NavLink = ({ to, children }) => {
+    const isActive = location.pathname === to;
+
+    return (
+      <ChakraLink
+        as={RouterLink}
+        to={to}
+        px={3}
+        py={2}
+        rounded={"md"}
+        fontFamily="Montserrat"
+        fontSize="16px"
+        fontWeight="500"
+        color={isActive ? "#024877" : "#999999"}
+        _hover={{
+          textDecoration: "none",
+          color: "#024877",
+          bg: "blue.50",
+        }}
+      >
+        {children}
+      </ChakraLink>
+    );
+  };
+
+
 
   return (
     <Box bg="white" px={4} boxShadow="sm" position="sticky" top="0" zIndex="999">
       <Flex h={16} alignItems={"center"} justifyContent={"space-between"}>
-        <Box fontWeight="bold" fontFamily="Montserrat">🎓 Achievers</Box>
+        {/* <Box fontWeight="bold" fontFamily="Montserrat">🎓 Achievers</Box> */}
+        <Image src={logo} alt="Achievers Logo" height="45px" />
 
         <IconButton
 
@@ -66,7 +76,7 @@ export default function Navbar() {
         />
 
         <HStack spacing={6} alignItems={"center"} display={{ base: "none", md: "flex" }}>
-          <NavLink to="/" isActive>Home</NavLink>
+          <NavLink to="/">Home</NavLink>
           <NavLink to="/aboutus" >About Us</NavLink>
 
           <Menu>
@@ -89,9 +99,9 @@ export default function Navbar() {
               <MenuItem>  <NavLink to="/testprep" >Test Prep</NavLink></MenuItem>
 
 
-              <MenuItem>  <NavLink to="/testprep" >Profile Building</NavLink></MenuItem>
-              <MenuItem>  <NavLink to="/testprep" >Visa Counselling</NavLink></MenuItem>
-              <MenuItem>  <NavLink to="/testprep" >Application Counselling</NavLink></MenuItem>
+              <MenuItem>  <NavLink to="/profilebuilding" >Profile Building</NavLink></MenuItem>
+              <MenuItem>  <NavLink to="/applicationcounseling" >Application Counselling</NavLink></MenuItem>
+              <MenuItem>  <NavLink to="/visacounseling" >Visa Counselling</NavLink></MenuItem>
             </MenuList>
           </Menu>
 
@@ -135,10 +145,11 @@ export default function Navbar() {
             <DrawerCloseButton mt={2} />
 
             <DrawerBody mt={4} display="flex" flexDirection="column" justifyContent="space-between" pb={6}>
-              <VStack align="start" spacing={4}>
+              <VStack align="center" spacing={4} textAlign="center" w="100%">
+
                 {/* Active Home */}
-                <Box w="full" bg="#F0F4FF" borderRadius="md">
-                  <NavLink to="/" isActive>
+                <Box w="full" borderRadius="md">
+                  <NavLink to="/">
                     Home
                   </NavLink>
                 </Box>
@@ -153,7 +164,7 @@ export default function Navbar() {
                     px={4}
                     py={2}
                     w="full"
-                    justifyContent="space-between"
+                    // justifyContent="space-between"
                     variant="ghost"
                     fontFamily="Montserrat"
                     fontWeight="medium"
@@ -167,17 +178,18 @@ export default function Navbar() {
                     Services
                   </Button>
                   {servicesOpen && (
-                    <VStack align="start" spacing={2} mt={2} pl={6}>
+                    <VStack align="center" spacing={2} mt={2} w="100%" textAlign="center">
+
                       <NavLink to="/testprep">Test Prep</NavLink>
                       <NavLink to="/profilebuilding">Profile Building</NavLink>
-                      <NavLink to="/visacounselling">Visa Counselling</NavLink>
-                      <NavLink to="/applicationcounselling">Application Counselling</NavLink>
+                      <NavLink to="/visacounseling">Visa Counselling</NavLink>
+                      <NavLink to="/applicationcounseling">Application Counselling</NavLink>
                     </VStack>
                   )}
                 </Box>
 
                 <NavLink to="/testimonials">Testimonials</NavLink>
-                <NavLink to="/contact">Contact Us</NavLink>
+                <NavLink to="/contactus">Contact Us</NavLink>
               </VStack>
 
               {/* Bottom buttons */}
