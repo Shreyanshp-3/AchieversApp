@@ -129,41 +129,42 @@ const Footer = () => {
         />
 
         {/* Right Section - Contents & Hours */}
-        <Flex
-          direction={{ base: "row", md: "row" }}
-          flex="1"
-          justify={{ base: "space-between", md: "flex-start" }}
-          gap={{ base: 8, md: 24 }}
-          pl={{ md: 12 }}
-          ml="auto"
-          zIndex={1}
-        >
-          {/* Contents */}
-          <Box>
-            <Text fontWeight="bold" fontSize="md" mb={2}>
-              Contents
-            </Text>
-            <VStack align="start" spacing={4}>
-              <Text fontSize="sm" color="gray.200">About Us</Text>
-              <Text fontSize="sm" color="gray.200">Services</Text>
-              <Text fontSize="sm" color="gray.200">Testimonials</Text>
-              <Text fontSize="sm" color="gray.200">Contact</Text>
-              <Text fontSize="sm" color="gray.200">Book an Appointment</Text>
-            </VStack>
-          </Box>
+    <Flex
+  direction="row"
+  flex="1"
+  justify="space-between"
+  gap={4}
+  flexWrap="wrap"
+  pl={{ md: 12 }}
+  ml="auto"
+  zIndex={1}
+>
+  {/* Contents */}
+  <Box flex="1" minW="150px">
+    <Text fontWeight="bold" fontSize="md" mb={2}>
+      Contents
+    </Text>
+    <VStack align="start" spacing={4}>
+      <Text fontSize="sm" color="gray.200">About Us</Text>
+      <Text fontSize="sm" color="gray.200">Services</Text>
+      <Text fontSize="sm" color="gray.200">Testimonials</Text>
+      <Text fontSize="sm" color="gray.200">Contact</Text>
+      <Text fontSize="sm" color="gray.200">Book an Appointment</Text>
+    </VStack>
+  </Box>
 
-          {/* Working Hours */}
-          <Box>
-            <Text fontWeight="bold" fontSize="md" mb={2}>
-              Working Hours
-            </Text>
-            <VStack align="start" spacing={4}>
-              <Text fontSize="sm" color="gray.200">10:00 - 19:00 - Monday–Friday</Text>
-              <Text fontSize="sm" color="gray.200">10:00 - 14:00 - Saturday</Text>
-              <Text fontSize="sm" color="gray.200">Closed - Sunday</Text>
-            </VStack>
-          </Box>
-        </Flex>
+  {/* Working Hours */}
+  <Box flex="1" minW="150px">
+    <Text fontWeight="bold" fontSize="md" mb={2}>
+      Working Hours
+    </Text>
+    <VStack align="start" spacing={4}>
+      <Text fontSize="sm" color="gray.200">10:00 - 19:00 - Monday - Saturday</Text>
+      <Text fontSize="sm" color="gray.200">10:00 - 14:00 - Sunday</Text>
+    </VStack>
+  </Box>
+</Flex>
+
       </Flex>
 
       {/* Bottom Divider & Copyright */}

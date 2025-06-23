@@ -83,7 +83,7 @@ export default function AboutUs() {
 
                         <Flex justify="space-between" mb={3}>
                             <Text fontSize="14px" color="gray.600" fontWeight="semibold">Timeline:</Text>
-                            <Text fontSize="14px" color="#214C7D" fontWeight="bold">1 Month</Text>
+                            <Text fontSize="14px" color="#214C7D" fontWeight="bold">1 Months</Text>
                         </Flex>
 
                         <Flex justify="space-between" mb={5}>
