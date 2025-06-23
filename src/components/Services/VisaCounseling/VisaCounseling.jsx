@@ -1,4 +1,4 @@
-import { Box, Heading, Text, Button, Flex, Image, OrderedList, ListItem } from "@chakra-ui/react";
+import { Box, Heading, Text, Button, Flex, Image, List, ListItem } from "@chakra-ui/react";
 // import { NavLink } from "react-router-dom";
 import Navbar from "../../Homepage/Navbar";
 import Footer from "../../Homepage/Footer";
@@ -36,8 +36,8 @@ export default function AboutUs() {
                         {/* <Text fontWeight="bold" fontSize="18px" mb={2} color="gray.700">
                             The test evaluates a student's proficiency in English across four core sections:
                         </Text> */}
-                        <Box pl={4} mb={8}>
-                            <OrderedList spacing={4} fontSize="15px" color="gray.700">
+                        <Box  mb={8}>
+                            <List spacing={4} fontSize="15px" color="gray.700">
                                 <ListItem>
                                     <Text>
                                         Although standard guidelines have been set out on various websites for the visa application process, the process is nevertheless quite intuitive and needs to be handled with utmost reverence for the general guidelines and case-based details. At Achievers Academy, we pay healthy attention to the applicant’s overall background, including the quality of admitted university, selected domain of specialization, its scope and future applications, sponsor’s financial background, and academic details. Instead of assuming the remedial approach, we embrace the preventive approach and make sure these factors are well in-place right from the onset. Equally careful attention to the quality and authenticity of documentation, immaculate filing of documents and forms, timely booking of visa appointment dates are other factors that we do not take for granted. Three rounds of mock interviews with expert insights and proven techniques have earned us the covetous legacy of 25 years of 100% visa approvals. That is a mean feat indeed.
@@ -45,7 +45,7 @@ export default function AboutUs() {
                                 </ListItem>
 
 
-                            </OrderedList>
+                            </List>
                         </Box>
 
 
@@ -83,12 +83,12 @@ export default function AboutUs() {
 
                         <Flex justify="space-between" mb={3}>
                             <Text fontSize="14px" color="gray.600" fontWeight="semibold">Timeline:</Text>
-                            <Text fontSize="14px" color="#214C7D" fontWeight="bold">1 months</Text>
+                            <Text fontSize="14px" color="#214C7D" fontWeight="bold">1 Month</Text>
                         </Flex>
 
                         <Flex justify="space-between" mb={5}>
                             <Text fontSize="14px" color="gray.600" fontWeight="semibold">Mode:</Text>
-                            <Text fontSize="14px" color="#214C7D" fontWeight="bold">In-person/Online</Text>
+                            <Text fontSize="14px" color="#214C7D" fontWeight="bold">In-Person/Online</Text>
                         </Flex>
 
                         <Button

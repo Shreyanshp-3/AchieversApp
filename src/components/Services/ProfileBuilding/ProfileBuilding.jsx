@@ -1,4 +1,4 @@
-import { Box, Heading, Text, Button, Flex, Image, OrderedList, ListItem } from "@chakra-ui/react";
+import { Box, Heading, Text, Button, Flex, Image,  ListItem, List } from "@chakra-ui/react";
 // import { NavLink } from "react-router-dom";
 import Navbar from "../../Homepage/Navbar";
 import Footer from "../../Homepage/Footer";
@@ -36,8 +36,8 @@ export default function AboutUs() {
                         {/* <Text fontWeight="bold" fontSize="18px" mb={2} color="gray.700">
                             The test evaluates a student's proficiency in English across four core sections:
                         </Text> */}
-                        <Box pl={4} mb={8}>
-                            <OrderedList spacing={4} fontSize="15px" color="gray.700">
+                        <Box  mb={8}>
+                            <List spacing={4} fontSize="15px" color="gray.700">
                                 <ListItem>
                                     <Text>
                                         Profile Building is a one of its kind service provided by us over the past 25 years that has earned us tremendous leverage in the counseling industry. This activity literally takes a student under its wings, right from the selection of a suitable specialization domain, up to the complete development of a holistic technical and non-technical profile.
@@ -55,7 +55,7 @@ export default function AboutUs() {
                                 </ListItem>
 
 
-                            </OrderedList>
+                            </List>
                         </Box>
 
 
@@ -93,12 +93,12 @@ export default function AboutUs() {
 
                         <Flex justify="space-between" mb={3}>
                             <Text fontSize="14px" color="gray.600" fontWeight="semibold">Timeline:</Text>
-                            <Text fontSize="14px" color="#214C7D" fontWeight="bold">7 months</Text>
+                            <Text fontSize="14px" color="#214C7D" fontWeight="bold">5 Months</Text>
                         </Flex>
 
                         <Flex justify="space-between" mb={5}>
                             <Text fontSize="14px" color="gray.600" fontWeight="semibold">Mode:</Text>
-                            <Text fontSize="14px" color="#214C7D" fontWeight="bold">In-person/Online</Text>
+                            <Text fontSize="14px" color="#214C7D" fontWeight="bold">In-Person/Online</Text>
                         </Flex>
 
                         <Button

@@ -1,4 +1,4 @@
-import { Box, Heading, Text, Button, Flex, Image, OrderedList, ListItem } from "@chakra-ui/react";
+import { Box, Heading, Text, Button, Flex, Image, List, ListItem } from "@chakra-ui/react";
 // import { NavLink } from "react-router-dom";
 import Navbar from "../../Homepage/Navbar";
 import Footer from "../../Homepage/Footer";
@@ -36,8 +36,8 @@ export default function AboutUs() {
                         {/* <Text fontWeight="bold" fontSize="18px" mb={2} color="gray.700">
                             The test evaluates a student's proficiency in English across four core sections:
                         </Text> */}
-                        <Box pl={4} mb={8}>
-                            <OrderedList spacing={4} fontSize="15px" color="gray.700">
+                        <Box  mb={8}>
+                            <List spacing={4} fontSize="15px" color="gray.700">
                                 <ListItem>
                                     <Text>
                                         While a good GRE score, satisfactory GPA, and an impressive profile are the three pillars upon which the admission outcome rests, it is the quality of documents that finally capture these factors and pitch it to the university on the candidate’s behalf. This self-marketing has to be immaculate, yet organic and personalised. Letters of recommendation, transcripts, statement of purpose, resume and other documents are part of the composite report card that the candidate has to present to the university for evaluation. Along with quality documents, the final shortlisting of universities is of unmatched importance. The university choice should reflect the candidate’s area of interest and background profile. Both these aspects go hand-in-hand to deliver a successful counseling experience.                                    </Text>
@@ -74,7 +74,7 @@ export default function AboutUs() {
                                     </Text>
                                 </ListItem>
 
-                            </OrderedList>
+                            </List>
                         </Box>
 
 
@@ -112,12 +112,12 @@ export default function AboutUs() {
 
                         <Flex justify="space-between" mb={3}>
                             <Text fontSize="14px" color="gray.600" fontWeight="semibold">Timeline:</Text>
-                            <Text fontSize="14px" color="#214C7D" fontWeight="bold">2 months</Text>
+                            <Text fontSize="14px" color="#214C7D" fontWeight="bold">2 Months</Text>
                         </Flex>
 
                         <Flex justify="space-between" mb={5}>
                             <Text fontSize="14px" color="gray.600" fontWeight="semibold">Mode:</Text>
-                            <Text fontSize="14px" color="#214C7D" fontWeight="bold">In-person/Online</Text>
+                            <Text fontSize="14px" color="#214C7D" fontWeight="bold">In-Person/Online</Text>
                         </Flex>
 
                         <Button

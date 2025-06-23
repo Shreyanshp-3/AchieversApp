@@ -18,7 +18,8 @@ import {
   DrawerCloseButton,
   DrawerHeader,
   DrawerBody,
-  Image
+  Image,
+  Link
 } from "@chakra-ui/react";
 import { HamburgerIcon, CloseIcon, ChevronDownIcon, ChevronUpIcon } from "@chakra-ui/icons";
 import { Link as RouterLink } from "react-router-dom";
@@ -109,20 +110,25 @@ export default function Navbar() {
           <NavLink to="/contactus" >Contact Us</NavLink>
         </HStack>
 
-        <Button
-          bg="#134BE4"
-          color="white"
-          fontSize="16px"
-          fontWeight="500"
-          fontFamily="Montserrat"
-          _hover={{ bg: "#0f3fbe" }}
-          size="sm"
-          p="6"
-          // mt={2}
-          display={{ base: "none", md: "inline-flex" }}
+        <Link
+          href="https://calendar.app.google/Pr9G4acTykNThqNS7"
+          isExternal
+          _hover={{ textDecoration: 'none' }}
         >
-          Book an Appointment
-        </Button>
+          <Button
+            bg="#134BE4"
+            color="white"
+            fontSize="16px"
+            fontWeight="500"
+            fontFamily="Montserrat"
+            _hover={{ bg: "#0f3fbe" }}
+            size="sm"
+            p="6"
+            display={{ base: "none", md: "inline-flex" }}
+          >
+            Book an Appointment
+          </Button>
+        </Link>
       </Flex>
 
       {isOpen && (

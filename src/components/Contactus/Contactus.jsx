@@ -25,9 +25,7 @@ export default function AboutUs() {
       </Box>
 
       <Box px={{ base: 4, md: 24 }} py={12} bg="white">
-        <Heading mb={6} color="#024877" fontSize="28px">
-          Contact Details
-        </Heading>
+
 
         <Flex
           direction={{ base: "column", md: "row" }}
@@ -38,6 +36,14 @@ export default function AboutUs() {
           {/* Left: Contact Info */}
           <Box flex="1" maxW="500px">
             {/* Address */}
+            <Flex align="flex-start" mb={6}>
+              {/* <Icon as={MdLocationOn} boxSize={5} color="#024877" mt={1} /> */}
+              <Box ml={3}>
+                <Heading color="#024877" fontSize="28px">
+                  Contact Details
+                </Heading>
+              </Box>
+            </Flex>
             <Flex align="flex-start" mb={6}>
               <Icon as={MdLocationOn} boxSize={5} color="#024877" mt={1} />
               <Box ml={3}>
@@ -93,7 +99,7 @@ export default function AboutUs() {
           <Box flex="1" w="100%" maxW={{ base: "100%", md: "581px" }}>
             <Box
               position="relative"
-              pt="56.25%" // 16:9 aspect ratio
+              pt="53%" // 16:9 aspect ratio
               w="100%"
               borderRadius="md"
               overflow="hidden"
@@ -122,74 +128,94 @@ export default function AboutUs() {
 
       <Box
         bg="#f3f3f3"
-        px={{ base: 4, md: 12 }}
-        py={{ base: 8, md: 16 }}
+        border="1px solid #dbe4f0"
+        px={{ base: 4, md: 16 }}
+        py={{ base: 10, md: 20 }}
         position="relative"
         overflow="hidden"
+        minH={{ base: "auto", md: "360px" }}
       >
         <Flex
+          direction="column"
+          justify="center"
           maxW="1200px"
           mx="auto"
-          direction="column"
-          align={{ base: "center", md: "flex-start" }}
+          zIndex={2}
           position="relative"
-          zIndex={1}
-          textAlign={{ base: "center", md: "left" }}
         >
-          <Box
-            maxW="600px"
-            mb={6}
-            zIndex={2}
-          >
+          <Box maxW={{ base: "100%", md: "560px" }} zIndex={2}>
             <Heading
-              fontSize={{ base: "22px", md: "40px" }}
+              fontSize={{ base: "24px", md: "36px" }}
               color="#003366"
-              fontWeight="800"
+              fontWeight="bold"
               mb={4}
             >
               Book an Appointment
             </Heading>
             <Text
-              fontSize={{ base: "15px", md: "18px" }}
+              fontSize={{ base: "12px", md: "18px" }}
               color="#003366"
+              mr={20}
               mb={6}
               lineHeight="1.7"
             >
-              Ready to take the next step towards your study abroad dreams?
-              Book an appointment with our expert team today and get
-              personalized guidance tailored to your goals.
+              Ready to take the next step towards your study abroad dreams? Book an
+              appointment with our expert team today and get personalized guidance
+              tailored to your goals.
             </Text>
-            <Button
-              bg="#1a46e4"
-              color="white"
-              size="md"
-              fontWeight="semibold"
-              borderRadius="lg"
-              width={{ base: "100%", md: "auto" }}
-              _hover={{ bg: "#1539bb", transform: "scale(1.03)" }}
-              transition="all 0.3s ease"
+
+            <Link
+              href="https://calendar.app.google/Pr9G4acTykNThqNS7"
+              isExternal
+              _hover={{ textDecoration: "none" }}
             >
-              BOOK AN APPOINTMENT
-            </Button>
+              <Button
+                bg="#134BE4"
+                color="white"
+                fontSize={{ base: "12px", md: "14px", lg: "16px" }}
+                fontWeight="bold"
+                px={{ base: "20px", md: "28px" }}
+                py={{ base: "12px", md: "16px" }}
+                borderRadius="12px"
+                _hover={{ bg: "#0f3fbe", transform: "scale(1.02)" }}
+                transition="all 0.3s ease"
+              >
+                BOOK AN APPOINTMENT
+              </Button>
+
+            </Link>
           </Box>
         </Flex>
 
-        {/* Bottom-right image with spacing */}
+        {/* Background Illustration (partially shown) */}
         <Box
           position="absolute"
-          right={{ base: "0", md: "20px" }}
           bottom="0"
-          maxW={{ base: "100%", md: "600px" }}
-          zIndex={0}
+          right={{ base: "-220px", md: "0" }}  // Move right only on mobile
+          top={{ base: "8", md: "auto" }}      // Offset top only on mobile
+          w="100%"
+          maxW={{ base: "500px", md: "600px" }} // Adjust max width
+          h={{ base: "100%", md: "auto" }}
+          overflow="hidden"
+          zIndex={1}
         >
           <Image
             src={appointmentBg}
             alt="Appointment Illustration"
             objectFit="cover"
-            width="100%"
+            objectPosition="bottom right"
+            w="100%"
+            h="100%"
+            transform={{ base: "scale(0.8)", md: "scale(1)" }}  // Normal scale on desktop
+            opacity={0.9}
           />
         </Box>
+
       </Box>
+
+
+
+
 
 
       <Footer />

@@ -118,7 +118,7 @@ export default function AboutSection() {
                             textAlign="justify"
                         >
                             In the dense overseas education industry, Achievers Academy stands tall with a
-                            formidable reputation, crafted over 24 years of immaculate counselling experience.
+                            formidable reputation, crafted over 25 years of immaculate counselling experience.
                             An honest approach towards test prep, university shortlisting and holistic application
                             guidance, Achievers Academy continues in its journey of helping students realize their
                             full potential and landing them opportunities that they truly deserve. So, your quest

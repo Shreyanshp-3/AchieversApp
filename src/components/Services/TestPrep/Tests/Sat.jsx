@@ -82,12 +82,12 @@ export default function AboutUs() {
 
                         <Flex justify="space-between" mb={3}>
                             <Text fontSize="14px" color="gray.600" fontWeight="semibold">Timeline:</Text>
-                            <Text fontSize="14px" color="#214C7D" fontWeight="bold">6 months</Text>
+                            <Text fontSize="14px" color="#214C7D" fontWeight="bold">6 Months</Text>
                         </Flex>
 
                         <Flex justify="space-between" mb={5}>
                             <Text fontSize="14px" color="gray.600" fontWeight="semibold">Mode:</Text>
-                            <Text fontSize="14px" color="#214C7D" fontWeight="bold">In-person/Online</Text>
+                            <Text fontSize="14px" color="#214C7D" fontWeight="bold">In-Person/Online</Text>
                         </Flex>
 
                         <Button
