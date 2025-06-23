@@ -6,6 +6,7 @@ import topBg from "../../../../theme/aboutusbg.png"; // your blue background ima
 // import c3 from "../../../../img/testprep/TOFEL.png";
 import c3 from "../../../../img/testprep/TOEFL.png";
 
+import mobiletopbg from "../../../../img/mobileheadbg.png"; // your blue background image
 
 
 export default function AboutUs() {
@@ -15,7 +16,10 @@ export default function AboutUs() {
             <br />
             {/* Hero Section with Background Image */}
             <Box
-                bgImage={`url(${topBg})`}
+                 bgImage={{
+                    base: `url(${mobiletopbg})`, // 👈 mobile image
+                    md: `url(${topBg})`,      // 👈 desktop image
+                }}
                 bgSize="cover"
                 bgPosition="center"
                 color="white"

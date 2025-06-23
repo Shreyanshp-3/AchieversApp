@@ -1,9 +1,10 @@
-import { Box, Heading, Text, Button, Flex, Image , OrderedList, ListItem } from "@chakra-ui/react";
+import { Box, Heading, Text, Button, Flex, Image, OrderedList, ListItem } from "@chakra-ui/react";
 // import { NavLink } from "react-router-dom";
 import Navbar from "../../../Homepage/Navbar";
 import Footer from "../../../Homepage/Footer";
 import topBg from "../../../../theme/aboutusbg.png"; // your blue background image
 import c3 from "../../../../img/testprep/SAT.png";
+import mobiletopbg from "../../../../img/mobileheadbg.png"; // your blue background image
 
 
 export default function AboutUs() {
@@ -13,7 +14,10 @@ export default function AboutUs() {
             <br />
             {/* Hero Section with Background Image */}
             <Box
-                bgImage={`url(${topBg})`}
+                bgImage={{
+                    base: `url(${mobiletopbg})`, // 👈 mobile image
+                    md: `url(${topBg})`,      // 👈 desktop image
+                }}
                 bgSize="cover"
                 bgPosition="center"
                 color="white"

@@ -6,6 +6,7 @@ import topBg from "../../theme/aboutusbg.png"; // your blue background image
 import appointmentBg from "../../theme/ILLUSTRATION.png";
 import { MdLocationOn, MdPhone, MdEmail } from "react-icons/md";
 import { FaLinkedin } from "react-icons/fa";
+import mobiletopbg from "../../img/mobileheadbg.png"; // your blue background image
 
 export default function AboutUs() {
   return (
@@ -14,7 +15,10 @@ export default function AboutUs() {
       <br />
       {/* Hero Section with Background Image */}
       <Box
-        bgImage={`url(${topBg})`}
+        bgImage={{
+          base: `url(${mobiletopbg})`, // 👈 mobile image
+          md: `url(${topBg})`,      // 👈 desktop image
+        }}
         bgSize="cover"
         bgPosition="center"
         color="white"

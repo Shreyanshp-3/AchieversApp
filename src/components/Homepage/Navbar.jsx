@@ -7,6 +7,7 @@ import {
   Button,
   useDisclosure,
   VStack,
+  Spacer,
 
   Menu,
   MenuButton,
@@ -66,6 +67,7 @@ export default function Navbar() {
       <Flex h={16} alignItems={"center"} justifyContent={"space-between"}>
         {/* <Box fontWeight="bold" fontFamily="Montserrat">🎓 Achievers</Box> */}
         <Image src={logo} alt="Achievers Logo" height="45px" />
+        <Spacer /> {/* 👈 Pushes hamburger to the far right */}
 
         <IconButton
 

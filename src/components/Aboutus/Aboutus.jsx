@@ -1,8 +1,9 @@
-import { Box, Heading, Text, Button, Flex, Image, SimpleGrid } from "@chakra-ui/react";
+import { Box, Heading, Text, Flex, Image } from "@chakra-ui/react";
 import Navbar from "../Homepage/Navbar";
 import Footer from "../Homepage/Footer";
 import speaker from "../../img/newabout.png"; // adjust path as needed
 import topBg from "../../theme/aboutusbg.png"; // your blue background image
+import mobiletopbg from "../../img/mobileheadbg.png"; // your blue background image
 
 export default function AboutUs() {
     return (
@@ -11,7 +12,12 @@ export default function AboutUs() {
             <br />
             {/* Hero Section with Background Image */}
             <Box
-                bgImage={`url(${topBg})`}
+                // bgImage={`url(${topBg})`}
+                bgImage={{
+                    base: `url(${mobiletopbg})`, // 👈 mobile image
+                    md: `url(${topBg})`,      // 👈 desktop image
+                }}
+
                 bgSize="cover"
                 bgPosition="center"
                 color="white"
