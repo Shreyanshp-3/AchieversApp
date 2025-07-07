@@ -7,9 +7,12 @@ import c1 from "../../../img/testprep/GRE.png";
 import c2 from "../../../img/testprep/SAT.png";
 import c3 from "../../../img/testprep/TOEFL.png";
 import mobiletopbg from "../../../img/mobileheadbg.png"; // your blue background image
+import { Link as RouterLink } from "react-router-dom";
+// import { Link } from "@chakra-ui/react";
 
-
+import { useNavigate } from "react-router-dom";
 export default function AboutUs() {
+    const navigate = useNavigate();
     return (
         <Box>
             <Navbar />
@@ -72,20 +75,21 @@ export default function AboutUs() {
                         <Text fontSize="14px" color="gray.600" mb={4}>
                             It is a standardized test required for applications to most STEM programs abroad. It tests a candidate’s verbal and quantitative abilities.
                         </Text>
-                        <Button
-                            bg="#134BE4"
-                            color="white"
-                            w="100%"
-                            _hover={{
-                                bg: "#102fc6",
-                                transform: "scale(1.03)",
-                                boxShadow: "lg",
-                            }}
-                            transition="all 0.3s ease"
-                        >
-                            <NavLink to="/testprep/Gre" >VIEW DETAILS</NavLink>
-                        </Button>
-
+                        <NavLink to="/testprep/">Gre
+                            <Button
+                                bg="#134BE4"
+                                color="white"
+                                w="100%"
+                                _hover={{
+                                    bg: "#102fc6",
+                                    transform: "scale(1.03)",
+                                    boxShadow: "lg",
+                                }}
+                                transition="all 0.3s ease"
+                            >
+                                VIEW DETAILS
+                            </Button>
+                        </NavLink>
                     </Box>
 
                     {/* TOEFL/IELTS */}

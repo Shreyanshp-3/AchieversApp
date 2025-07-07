@@ -1,85 +1,86 @@
-import { Box, Flex, Heading, Image, Text } from "@chakra-ui/react";
+import t1 from "../../img/teachers/t1.png";
+import t2 from "../../img/teachers/t2.png";
+import React from "react";
+import {
+    Box,
+    Heading,
+    Text,
+    Image,
+    Link,
+    Container,
+    SimpleGrid,
+    VStack,
+} from "@chakra-ui/react";
 
-export default function ExpertTrainers() {
-    const trainers = [
-        {
-            name: "Ananya Desai",
-            role: "English Faculty",
-            img: "/trainer1.jpg", // Replace with actual image
-            description:
-                "With 30 years of teaching experience behing her, Mrs. Desai dispenses expert tips and techniques to for the GRE Verbal and AWA sections that engage students across all diaspora. When it comes to the much dreaded speaking section of TOFEL, there's no looking beyond her. Her technical mentioshup is also highly sought after by students from all corners of the country and beyond.",
-        },
-        {
-            name: "Avinash Shukla",
-            role: "English Faculty",
-            img: "/trainer2.jpg",
-            description:
-                "Attunded to students requirnments, Mr. Andhari makes Math fun! Never taking Math fundamentals for granted, he upwraps every topic from scratch and extracts tons of practice from aspirants His unbridled love fot he subject puts every student at ease. This yound albeit dedicated faculty has a strong student connect that makes his pedagogy very accessible too",
-        },
-    ];
+const trainers = [
+    {
+        name: "Pallavi Desai",
+        role: "Center Head & English Faculty",
+        description:
+            "With 30 years of teaching experience behind her, Mrs. Desai dispenses expert tips and techniques for the GRE Verbal and AWA sections that engage students across all diaspora. When it comes to the much dreaded speaking section of TOEFL, there’s no looking beyond her. Her technical mentorship is also highly sought after by students from all corners of the country and beyond.",
+        image: t1,
+    },
+    {
+        name: "Gitesh Andhari",
+        role: "Math Faculty",
+        description:
+            "Attuned to students’ requirements, Mr. Andhari makes Math fun! Never taking Math fundamentals for granted, he unwraps every topic from scratch and extracts tons of practice from aspirants. His unbridled love for the subject puts every student at ease. This young albeit dedicated faculty has a strong student connect that makes his pedagogy very accessible too.",
+        image: t2,
+    },
+];
 
+const Trainers = () => {
     return (
-        <Box bg="white" py={12} px={4}>
-            <Heading
-                as="h2"
-                textAlign="center"
-                mb={10}
-                color="#003366"
-                fontSize={{ base: "24px", md: "36px" }}
-                fontWeight="bold"
-            >
-                Our Expert Trainers
-            </Heading>
+        <Box py={10} bg="white">
+            <Container maxW="7xl">
+                <Heading
+                    as="h2"
+                    textAlign="center"
+                    mb={10}
+                    fontSize={{ base: "2xl", md: "3xl" }}
+                    color="blue.900"
+                >
+                    Our Expert Trainers
+                </Heading>
 
-            <Flex
-                justify="center"
-                align="center"
-                wrap="wrap"
-                gap={12}
-                maxW="1200px"
-                mx="auto"
-            >
-                {trainers.map((trainer, index) => (
-                    <Box
-                        key={index}
-                        bg="white"
-                        boxShadow="md"
-                        borderRadius="lg"
-                        p={6}
-                        w={{ base: "100%", md: "48%" }}
-                        maxW="550px"
-                        minH="320px"
-                        transition="all 0.3s ease"
-                        _hover={{ boxShadow: "lg", transform: "translateY(-4px)" }}
-                    >
-                        <Flex align="center" mb={4}>
+                <SimpleGrid columns={{ base: 1, md: 2 }} spacing={6}>
+                    {trainers.map((trainer, index) => (
+                        <Box
+                            key={index}
+                            bg="white"
+                            boxShadow="sm"
+                            p={{ base: 4, md: 5 }}
+                            borderRadius="md"
+                            display="flex"
+                            gap={4}
+                            flexDirection="row"
+                            alignItems="flex-start"
+                        >
                             <Image
-                                src={trainer.img}
+                                src={trainer.image}
                                 alt={trainer.name}
-                                borderRadius="full"
-                                boxSize={{ base: "60px", md: "70px" }}
-                                mr={4}
+                                borderRadius="md"
                                 objectFit="cover"
+                                width={{ base: "0%", md: "160px" }}
+                                height={{ base: "140px", md: "240px" }}
                             />
-                            <Box>
-                                <Text fontWeight="bold" fontSize={{ base: "lg", md: "xl" }}>
+                            <VStack align="start" spacing={1} flex="1">
+                                <Text fontWeight="bold" fontSize={{ base: "md", md: "lg" }}>
                                     {trainer.name}
                                 </Text>
-                                <Text color="#1a46e4" fontSize={{ base: "sm", md: "md" }}>
+                                <Link color="blue.500" fontSize="sm">
                                     {trainer.role}
+                                </Link>
+                                <Text fontSize={{ base: "sm", md: "sm" }} mt={2}>
+                                    {trainer.description}
                                 </Text>
-                            </Box>
-                        </Flex>
-                        <Text
-                            fontSize={{ base: "sm", md: "md" }}
-                            color="gray.700"
-                            lineHeight="1.5"
-                        >
-                            {trainer.description}
-                        </Text>
-                    </Box>
-                ))}
-            </Flex>
+                            </VStack>
+                        </Box>
+                    ))}
+                </SimpleGrid>
+            </Container>
         </Box>
     );
-}
+};
+
+export default Trainers;

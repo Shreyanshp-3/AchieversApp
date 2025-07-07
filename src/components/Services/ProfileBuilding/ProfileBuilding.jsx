@@ -1,4 +1,4 @@
-import { Box, Heading, Text, Button, Flex, Image,  ListItem, List } from "@chakra-ui/react";
+import { Box, Heading, Text, Button, Flex, Image, ListItem, List, Link } from "@chakra-ui/react";
 // import { NavLink } from "react-router-dom";
 import Navbar from "../../Homepage/Navbar";
 import Footer from "../../Homepage/Footer";
@@ -36,7 +36,7 @@ export default function AboutUs() {
                         {/* <Text fontWeight="bold" fontSize="18px" mb={2} color="gray.700">
                             The test evaluates a student's proficiency in English across four core sections:
                         </Text> */}
-                        <Box  mb={8}>
+                        <Box mb={8}>
                             <List spacing={4} fontSize="15px" color="gray.700">
                                 <ListItem>
                                     <Text>
@@ -101,21 +101,28 @@ export default function AboutUs() {
                             <Text fontSize="14px" color="#214C7D" fontWeight="bold">In-Person/Online</Text>
                         </Flex>
 
-                        <Button
+                        <Link
+                            href="https://calendar.app.google/Pr9G4acTykNThqNS7"
+                            isExternal
                             w="100%"
-                            bg="#134BE4"
-                            color="white"
-                            _hover={{
-                                bg: "#0f3fc1",
-                                transform: "scale(1.03)",
-                                boxShadow: "lg",
-                            }}
+                            _hover={{ textDecoration: "none" }}
                         >
-                            BOOK AN APPOINTMENT
-                        </Button>
+                            <Button
+                                w="100%"
+                                bg="#134BE4"
+                                color="white"
+                                _hover={{
+                                    bg: "#0f3fc1",
+                                    transform: "scale(1.03)",
+                                    boxShadow: "lg",
+                                }}
+                            >
+                                BOOK AN APPOINTMENT
+                            </Button>
+                        </Link>
                     </Box>
                 </Flex>
-                
+
             </Box >
 
 

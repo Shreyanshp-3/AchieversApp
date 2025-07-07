@@ -8,7 +8,6 @@ import {
   useDisclosure,
   VStack,
   Spacer,
-
   Menu,
   MenuButton,
   MenuList,
@@ -47,12 +46,13 @@ export default function Navbar() {
         rounded={"md"}
         fontFamily="Montserrat"
         fontSize="16px"
-        fontWeight="500"
+        fontWeight={isActive ? "600" : "500"} 
         color={isActive ? "#024877" : "#999999"}
         _hover={{
           textDecoration: "none",
           color: "#024877",
           bg: "blue.50",
+          // fontWeight: "600",
         }}
       >
         {children}
