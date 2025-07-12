@@ -1,19 +1,21 @@
-import React, { useState, useEffect } from "react";
+// Testimonials.jsx
+import React from "react";
 import {
   Box,
-  Heading,
+  Flex,
   Text,
-  VStack,
   Image,
-  HStack,
+  Heading,
+  UnorderedList,
+  ListItem,
 } from "@chakra-ui/react";
-import { useKeenSlider } from "keen-slider/react";
-import "keen-slider/keen-slider.min.css";
 
+// Dummy data
 const testimonials = [
   {
     name: "Aditya Kothari",
     major: "MS in Aerospace Engineering",
+    image: "/img/aditya.jpg", // Replace with actual path or URL
     admits: [
       "Stanford University, CA, USA",
       "Georgia Tech, USA",
@@ -21,147 +23,112 @@ const testimonials = [
       "ISAE-SUPAERO, France",
       "University of Illinois Urbana-Champaign, USA",
     ],
-    image: "/img/testimonials/aditya.jpg",
   },
   {
-    name: "Viraj Parmar",
+    name: "Viraj Parmaaj",
     major: "MS in Statistics",
+    image: "/img/viraj.jpg", // Replace with actual path or URL
     admits: [
-      "University of Illinois Urbana-Champaign",
+      "University of Illinois Urbana-Champaign (UIUC)",
       "University of Maryland College Park",
       "Northeastern University",
     ],
-    image: "/img/testimonials/viraj.jpg",
-    text: `"Achievers Academy helped me go beyond just preparing for exams like GRE and TOEFL by teaching me the 'correct' approach for the exam using optimal strategy, which greatly helped in the verbal section.\n\nThey constantly enlightened me with opportunities for profile building through relevant certifications, research outreach, and collaborative projects with our academy peers, which I believe is one of the unique practices that set Achievers apart.\n\nThe application phase was intensive, a different process and set of questions for each college, but with Pallavi Ma'am's resolute guidance and patience over multiple SOP iterations to make it perfect, I was able to present my profile effectively. The mock interviews, giving me full confidence during the actual event which can be rather daunting."`,
+    paragraph: `“Achievers Academy helped me go beyond just preparing for exams like GRE and TOEFL by teaching me the correct approach for the exam using optimal strategy, which greatly helped in the verbal section.
+
+The organization enlightened me with opportunities for profile building through relevant certifications, research outreach, and collaborative projects with peers.
+
+The application phase was intensive, a different process and set of questions for each college—but with Pallavi Ma'am’s guidance, profile polishing, mock interviews, and booking support, the entire experience became structured and smooth.”`,
   },
   {
     name: "Samruddhi Kale",
     major: "MS in Data Science",
+    image: "/img/samruddhi.jpg", // Replace with actual path or URL
     admits: [
       "University of Southern California (USC)",
       "Boston University",
       "George Washington University (GWU)",
       "Indiana University Bloomington (IUB)",
     ],
-    image: "/img/testimonials/samruddhi.jpg",
   },
 ];
 
-const Testimonials = () => {
-  const [currentSlide, setCurrentSlide] = useState(1);
-  const [sliderRef, instanceRef] = useKeenSlider({
-    initial: 1,
-    loop: true,
-    mode: "snap",
-    slides: {
-      perView: 3,
-      spacing: 30,
-    },
-    slideChanged(slider) {
-      setCurrentSlide(slider.track.details.rel);
-    },
-    centered: true,
-  });
+// Card Component
+const TestimonialCard = ({ data, isCenter }) => (
+  <Box
+    bg="#0C2B57"
+    color="white"
+    borderRadius="lg"
+    p={5}
+    w={isCenter ? "500px" : "300px"}
+    minH={isCenter ? "auto" : "350px"}
+    boxShadow={isCenter ? "lg" : "base"}
+    border={isCenter ? "2px solid #ffffff30" : "1px solid #ffffff20"}
+    transition="all 0.3s"
+    overflow="hidden"
+  >
+    <Flex align="center" mb={4}>
+      <Image
+        src={data.image}
+        boxSize="70px"
+        borderRadius="full"
+        objectFit="cover"
+        mr={4}
+      />
+      <Box>
+        <Text fontWeight="bold">{data.name}</Text>
+        <Text fontSize="sm" color="gray.300">
+          Major: {data.major}
+        </Text>
+      </Box>
+    </Flex>
+    <Box mb={2}>
+      <Text fontWeight="semibold" mb={1}>
+        Admits:
+      </Text>
+      <UnorderedList spacing={1} fontSize="sm" pl={5}>
+        {data.admits.map((a, idx) => (
+          <ListItem key={idx}>{a}</ListItem>
+        ))}
+      </UnorderedList>
+    </Box>
+    {isCenter && data.paragraph && (
+      <Text fontSize="sm" color="gray.200" mt={3} whiteSpace="pre-line">
+        {data.paragraph}
+      </Text>
+    )}
+  </Box>
+);
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      instanceRef.current?.next();
-    }, 4000);
-    return () => clearInterval(interval);
-  }, [instanceRef]);
-
-  const getCardStyle = (index) => {
-    if (index === currentSlide) {
-      return {
-        transform: "scale(1.05)",
-        transition: "all 0.4s ease",
-        backgroundColor: "white",
-        color: "black",
-        padding: "1.5rem",
-        borderRadius: "10px",
-        boxShadow: "0px 4px 20px rgba(0,0,0,0.2)",
-        height: "auto",
-        maxWidth: "500px",
-        zIndex: 2,
-      };
-    } else {
-      return {
-        transform: "scale(0.9)",
-        transition: "all 0.4s ease",
-        backgroundColor: "white",
-        color: "black",
-        padding: "1rem",
-        borderRadius: "10px",
-        boxShadow: "0px 2px 10px rgba(0,0,0,0.1)",
-        height: "300px",
-        overflow: "hidden",
-        textOverflow: "ellipsis",
-        whiteSpace: "nowrap",
-        zIndex: 1,
-      };
-    }
-  };
+// Main Component
+export default function Testimonials() {
+  const centerIndex = 1; // The middle card (Viraj)
 
   return (
-    <Box bg="#0C4C7C" py={10} px={4} color="white">
-      <Heading textAlign="center" fontSize={{ base: "2xl", md: "3xl" }} mb={8}>
+    <Box bg="#012C6D" py={12} px={[4, 10]}>
+      <Heading
+        color="white"
+        textAlign="center"
+        mb={10}
+        fontSize={["2xl", "3xl", "4xl"]}
+      >
         Hear From Our Achievers
       </Heading>
 
-      <Box
-        ref={sliderRef}
-        className="keen-slider"
-        display="flex"
-        alignItems="center"
+      <Flex
+        py={4}
+        overflowX="auto"
         justifyContent="center"
+        flexWrap="nowrap"
+        gap={6}
+        css={{
+          "&::-webkit-scrollbar": { display: "none" },
+          scrollbarWidth: "none",
+        }}
       >
-        {testimonials.map((person, index) => (
-          <Box
-            key={index}
-            className="keen-slider__slide"
-            style={getCardStyle(index)}
-          >
-            <VStack align="start" spacing={3}>
-              <HStack spacing={4} align="start">
-                <Image
-                  src={person.image}
-                  alt={person.name}
-                  borderRadius="full"
-                  boxSize="60px"
-                  objectFit="cover"
-                />
-                <Box>
-                  <Text fontWeight="bold" fontSize="lg">
-                    {person.name}
-                  </Text>
-                  <Text fontSize="sm" color="gray.600">
-                    Major: {person.major}
-                  </Text>
-                </Box>
-              </HStack>
-
-              <Box>
-                <Text fontWeight="bold" fontSize="sm">
-                  Admits:
-                </Text>
-                {person.admits.map((adm, i) => (
-                  <Text key={i} fontSize="sm" pl={1}>
-                    {i + 1}. {adm}
-                  </Text>
-                ))}
-              </Box>
-
-              {person.text && (
-                <Text fontSize="sm" mt={2} fontStyle="italic">
-                  {person.text}
-                </Text>
-              )}
-            </VStack>
-          </Box>
+        {testimonials.map((t, i) => (
+          <TestimonialCard key={i} data={t} isCenter={i === centerIndex} />
         ))}
-      </Box>
+      </Flex>
     </Box>
   );
-};
-
-export default Testimonials;
+}

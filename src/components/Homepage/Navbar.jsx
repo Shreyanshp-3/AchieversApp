@@ -46,7 +46,7 @@ export default function Navbar() {
         rounded={"md"}
         fontFamily="Montserrat"
         fontSize="16px"
-        fontWeight={isActive ? "600" : "500"} 
+        fontWeight={isActive ? "600" : "500"}
         color={isActive ? "#024877" : "#999999"}
         _hover={{
           textDecoration: "none",
@@ -64,7 +64,7 @@ export default function Navbar() {
 
   return (
     <Box bg="white" px={4} boxShadow="sm" position="sticky" top="0" zIndex="999">
-      <Flex h={16} alignItems={"center"} justifyContent={"space-between"}>
+      <Flex h={16} alignItems={"center"} position="relative" w="100%" justifyContent={"space-between"}>
         {/* <Box fontWeight="bold" fontFamily="Montserrat">🎓 Achievers</Box> */}
         <Image src={logo} alt="Achievers Logo" height="45px" />
         <Spacer /> {/* 👈 Pushes hamburger to the far right */}
@@ -78,7 +78,9 @@ export default function Navbar() {
           onClick={isOpen ? onClose : onOpen}
         />
 
-        <HStack spacing={6} alignItems={"center"} display={{ base: "none", md: "flex" }}>
+        <HStack spacing={6} alignItems={"center"} display={{ base: "none", md: "flex" }} position="absolute"
+          left="50%"
+          transform="translateX(-50%)">
           <NavLink to="/">Home</NavLink>
           <NavLink to="/aboutus" >About Us</NavLink>
 
