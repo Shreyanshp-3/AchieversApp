@@ -155,86 +155,210 @@ export default function Navbar() {
             <DrawerCloseButton mt={2} />
 
             <DrawerBody mt={4} display="flex" flexDirection="column" justifyContent="space-between" pb={6}>
-              <VStack align="center" spacing={4} textAlign="center" w="100%">
+              <VStack align="stretch" spacing={1} w="100%">
+                {/* HOME */}
+                <Button
+                  as={(props) => (
+                    <NavLink
+                      {...props}
+                      to="/"
+                      style={({ isActive }) => ({
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                        width: "100%",
+                        background: isActive ? "#F0F4FF" : "transparent",
+                        color: isActive ? "#134BE4" : "#999999",
+                        fontWeight: isActive ? "bold" : "medium",
+                        borderRadius: "0",
+                        boxShadow: isActive ? "0 2px 8px rgba(19,75,228,0.08)" : "none",
+                        border: isActive ? "2px solid #134BE4" : "2px solid transparent",
+                        textAlign: "center",
+                      })}
+                    />
+                  )}
+                  variant="ghost"
+                  w="100%"
+                  px={0}
+                  py={5}
+                  justifyContent="center"
+                  fontFamily="Montserrat"
+                  fontSize="18px"
+                  textAlign="center"
+                  _hover={{ bg: "#F0F4FF", color: "#134BE4" }}
+                >
+                  Home
+                </Button>
 
-                {/* Active Home */}
-                <Box w="full" borderRadius="md">
-                  <NavLink to="/">
-                    Home
-                  </NavLink>
-                </Box>
+                {/* ABOUT US */}
+                <Button
+                  as={(props) => (
+                    <NavLink
+                      {...props}
+                      to="/aboutus"
+                      style={({ isActive }) => ({
+                        display: "block",
+                        width: "100%",
+                        background: isActive ? "#F0F4FF" : "transparent",
+                        color: isActive ? "#134BE4" : "#999999",
+                        fontWeight: isActive ? "bold" : "medium",
+                        borderRadius: "0",
+                        boxShadow: isActive ? "0 2px 8px rgba(19,75,228,0.08)" : "none",
+                        border: isActive ? "2px solid #134BE4" : "2px solid transparent",
+                        textAlign: "center",
+                      })}
+                    />
+                  )}
+                  variant="ghost"
+                  w="100%"
+                  px={0}
+                  py={5}
+                  justifyContent="center"
+                  fontFamily="Montserrat"
+                  fontSize="18px"
+                  textAlign="center"
+                  _hover={{ bg: "#F0F4FF", color: "#134BE4" }}
+                >
+                  About Us
+                </Button>
 
-                {/* About Us */}
-                <NavLink to="/aboutus">About Us</NavLink>
-
-                {/* Toggleable Services */}
-                <Box w="full">
+                {/* SERVICES */}
+                <Box w="100%">
                   <Button
                     onClick={toggleServices}
-                    px={4}
-                    py={2}
-                    w="full"
-                    // justifyContent="space-between"
+                    w="100%"
+                    px={0}
+                    py={5}
                     variant="ghost"
+                    justifyContent="center"
                     fontFamily="Montserrat"
+                    fontSize="18px"
                     fontWeight="medium"
-                    fontSize="16px"
+                    textAlign="center"
                     color={servicesOpen ? "#134BE4" : "#999999"}
                     bg={servicesOpen ? "#F0F4FF" : "transparent"}
                     borderLeft={servicesOpen ? "4px solid #134BE4" : "4px solid transparent"}
-                    _hover={{ bg: "#F0F4FF" }}
+                    borderRadius="0"
                     rightIcon={servicesOpen ? <ChevronUpIcon /> : <ChevronDownIcon />}
+                    _hover={{ bg: "#F0F4FF" }}
                   >
                     Services
                   </Button>
                   {servicesOpen && (
-                    <VStack align="center" spacing={2} mt={2} w="100%" textAlign="center">
-
-                      <NavLink to="/testprep">Test Prep</NavLink>
-                      <NavLink to="/profilebuilding">Profile Building</NavLink>
-                      <NavLink to="/visacounseling">Visa Counselling</NavLink>
-                      <NavLink to="/applicationcounseling">Application Counselling</NavLink>
+                    <VStack align="stretch" spacing={0} mt={2} w="100%">
+                      {[
+                        { name: "Test Prep", path: "/testprep" },
+                        { name: "Profile Building", path: "/profilebuilding" },
+                        { name: "Visa Counselling", path: "/visacounseling" },
+                        { name: "Application Counselling", path: "/applicationcounseling" },
+                      ].map(({ name, path }) => (
+                        <Button
+                          key={path}
+                          as={(props) => (
+                            <NavLink
+                              {...props}
+                              to={path}
+                              style={({ isActive }) => ({
+                                display: "block",
+                                width: "100%",
+                                background: isActive ? "#F0F4FF" : "transparent",
+                                color: isActive ? "#134BE4" : "#999999",
+                                fontWeight: isActive ? "bold" : "medium",
+                                borderRadius: "0",
+                                boxShadow: isActive ? "0 2px 8px rgba(19,75,228,0.08)" : "none",
+                                border: isActive ? "2px solid #134BE4" : "2px solid transparent",
+                                textAlign: "center",
+                              })}
+                            />
+                          )}
+                          variant="ghost"
+                          w="100%"
+                          px={0}
+                          py={5}
+                          justifyContent="center"
+                          fontFamily="Montserrat"
+                          fontSize="18px"
+                          textAlign="center"
+                          _hover={{ bg: "#F0F4FF", color: "#134BE4" }}
+                        >
+                          {name}
+                        </Button>
+                      ))}
                     </VStack>
                   )}
                 </Box>
 
-                <NavLink to="/testimonials">Testimonials</NavLink>
-                <NavLink to="/contactus">Contact Us</NavLink>
-              </VStack>
-
-              {/* Bottom buttons */}
-              <VStack mt={10} spacing={4}>
+                {/* TESTIMONIALS */}
                 <Button
+                  as={(props) => (
+                    <NavLink
+                      {...props}
+                      to="/testimonials"
+                      style={({ isActive }) => ({
+                        display: "block",
+                        width: "100%",
+                        background: isActive ? "#F0F4FF" : "transparent",
+                        color: isActive ? "#134BE4" : "#999999",
+                        fontWeight: isActive ? "bold" : "medium",
+                        borderRadius: "0",
+                        boxShadow: isActive ? "0 2px 8px rgba(19,75,228,0.08)" : "none",
+                        border: isActive ? "2px solid #134BE4" : "2px solid transparent",
+                        textAlign: "center",
+                      })}
+                    />
+                  )}
+                  variant="ghost"
                   w="100%"
-                  bg="#134BE4"
-                  color="white"
-                  fontWeight="600"
-                  fontSize="14px"
-                  borderRadius="md"
+                  px={0}
+                  py={5}
+                  justifyContent="center"
                   fontFamily="Montserrat"
-                  _hover={{ bg: "#0f3fbe" }}
+                  fontSize="18px"
+                  textAlign="center"
+                  _hover={{ bg: "#F0F4FF", color: "#134BE4" }}
                 >
-                  Book an Appointment
+                  Testimonials
                 </Button>
+
+                {/* CONTACT US */}
                 <Button
+                  as={(props) => (
+                    <NavLink
+                      {...props}
+                      to="/contactus"
+                      style={({ isActive }) => ({
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                        width: "100%",
+                        background: isActive ? "#F0F4FF" : "transparent",
+                        color: isActive ? "#134BE4" : "#999999",
+                        fontWeight: isActive ? "bold" : "medium",
+                        borderRadius: "0",
+                        boxShadow: isActive ? "0 2px 8px rgba(19,75,228,0.08)" : "none",
+                        border: isActive ? "2px solid #134BE4" : "2px solid transparent",
+                        textAlign: "center",
+                      })}
+                    />
+                  )}
+                  variant="ghost"
                   w="100%"
-                  variant="outline"
-                  borderColor="#134BE4"
-                  color="#134BE4"
-                  fontWeight="600"
-                  fontSize="14px"
-                  borderRadius="md"
+                  px={0}
+                  py={5}
+                  justifyContent="center"
                   fontFamily="Montserrat"
-                  onClick={onClose}
+                  fontSize="18px"
+                  textAlign="center"
+                  _hover={{ bg: "#F0F4FF", color: "#134BE4" }}
                 >
-                  Close Menu
+                  Contact Us
                 </Button>
               </VStack>
             </DrawerBody>
-
           </DrawerContent>
         </Drawer>
       )}
+
     </Box>
   );
 }

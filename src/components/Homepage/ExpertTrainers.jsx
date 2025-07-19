@@ -51,11 +51,14 @@ const Trainers = () => {
               boxShadow="sm"
               p={{ base: 4, md: 5 }}
               borderRadius="md"
+              border="1px solid"
+              borderColor="gray.200"
               display="flex"
               gap={4}
               flexDirection="row"
               alignItems="flex-start"
             >
+
               <Image
                 src={trainer.image}
                 alt={trainer.name}

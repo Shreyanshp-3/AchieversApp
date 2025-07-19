@@ -1,4 +1,4 @@
-import { Box, Heading, Text, Button, Image, SimpleGrid } from "@chakra-ui/react";
+import { Box, Heading, Text, Button, Image, SimpleGrid, Link } from "@chakra-ui/react";
 import { NavLink } from "react-router-dom";
 import Navbar from "../../Homepage/Navbar";
 import Footer from "../../Homepage/Footer";
@@ -75,7 +75,24 @@ export default function AboutUs() {
                         <Text fontSize="14px" color="gray.600" mb={4}>
                             It is a standardized test required for applications to most STEM programs abroad. It tests a candidate’s verbal and quantitative abilities.
                         </Text>
-                        <NavLink to="/testprep/">Gre
+                        {/* <Button
+                            bg="#134BE4"
+                            color="white"
+                            w="100%"
+                            _hover={{
+                                bg: "#102fc6",
+                                transform: "scale(1.03)",
+                                boxShadow: "lg",
+                            }}
+                            transition="all 0.3s ease"
+                        >
+                            <NavLink to="/testprep/Gre" >VIEW DETAILS</NavLink>
+                        </Button> */}
+                        <Link
+                            href="/testprep/Gre"
+                            
+                            _hover={{ textDecoration: 'none' }}
+                        >
                             <Button
                                 bg="#134BE4"
                                 color="white"
@@ -89,7 +106,7 @@ export default function AboutUs() {
                             >
                                 VIEW DETAILS
                             </Button>
-                        </NavLink>
+                        </Link>
                     </Box>
 
                     {/* TOEFL/IELTS */}
@@ -114,19 +131,25 @@ export default function AboutUs() {
                         <Text fontSize="14px" color="gray.600" mb={4}>
                             It is a language proficiency test that checks a candidate’s English language abilities on four sections namely reading, writing, speaking, and listening.
                         </Text>
-                        <Button
-                            bg="#134BE4"
-                            color="white"
-                            w="100%"
-                            _hover={{
-                                bg: "#102fc6",
-                                transform: "scale(1.03)",
-                                boxShadow: "lg",
-                            }}
-                            transition="all 0.3s ease"
+                        <Link
+                            href="/testprep/Tofel"
+                            
+                            _hover={{ textDecoration: 'none' }}
                         >
-                            <NavLink to="/testprep/Tofel" >VIEW DETAILS</NavLink>
-                        </Button>
+                            <Button
+                                bg="#134BE4"
+                                color="white"
+                                w="100%"
+                                _hover={{
+                                    bg: "#102fc6",
+                                    transform: "scale(1.03)",
+                                    boxShadow: "lg",
+                                }}
+                                transition="all 0.3s ease"
+                            >
+                                VIEW DETAILS
+                            </Button>
+                        </Link>
 
                     </Box>
 
@@ -152,19 +175,25 @@ export default function AboutUs() {
                         <Text fontSize="14px" color="gray.600" mb={4}>
                             It is a standardized test for undergraduate applications to most STEM programs abroad. It tests a candidate’s verbal and quantitative abilities.
                         </Text>
-                        <Button
-                            bg="#134BE4"
-                            color="white"
-                            w="100%"
-                            _hover={{
-                                bg: "#102fc6",
-                                transform: "scale(1.03)",
-                                boxShadow: "lg",
-                            }}
-                            transition="all 0.3s ease"
+                       <Link
+                            href="/testprep/Sat "
+                            
+                            _hover={{ textDecoration: 'none' }}
                         >
-                            <NavLink to="/testprep/Sat" >VIEW DETAILS</NavLink>
-                        </Button>
+                            <Button
+                                bg="#134BE4"
+                                color="white"
+                                w="100%"
+                                _hover={{
+                                    bg: "#102fc6",
+                                    transform: "scale(1.03)",
+                                    boxShadow: "lg",
+                                }}
+                                transition="all 0.3s ease"
+                            >
+                                VIEW DETAILS
+                            </Button>
+                        </Link>
 
                     </Box>
                 </SimpleGrid>
