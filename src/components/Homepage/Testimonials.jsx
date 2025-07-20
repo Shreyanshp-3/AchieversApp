@@ -1,21 +1,14 @@
-// Testimonials.jsx
-import React from "react";
-import {
-  Box,
-  Flex,
-  Text,
-  Image,
-  Heading,
-  UnorderedList,
-  ListItem,
-} from "@chakra-ui/react";
+import React, { useState, useRef } from "react";
+import "./Testimonials.css";
+import { Box, Text, Heading, UnorderedList, ListItem, Image, Flex } from "@chakra-ui/react";
 
-// Dummy data
+
+
 const testimonials = [
   {
     name: "Aditya Kothari",
     major: "MS in Aerospace Engineering",
-    image: "/img/aditya.jpg", // Replace with actual path or URL
+    image: "/img/aditya.jpg",
     admits: [
       "Stanford University, CA, USA",
       "Georgia Tech, USA",
@@ -27,22 +20,18 @@ const testimonials = [
   {
     name: "Viraj Parmaaj",
     major: "MS in Statistics",
-    image: "/img/viraj.jpg", // Replace with actual path or URL
+    image: "/img/viraj.jpg",
     admits: [
       "University of Illinois Urbana-Champaign (UIUC)",
       "University of Maryland College Park",
       "Northeastern University",
     ],
-    paragraph: `“Achievers Academy helped me go beyond just preparing for exams like GRE and TOEFL by teaching me the correct approach for the exam using optimal strategy, which greatly helped in the verbal section.
-
-The organization enlightened me with opportunities for profile building through relevant certifications, research outreach, and collaborative projects with peers.
-
-The application phase was intensive, a different process and set of questions for each college—but with Pallavi Ma'am’s guidance, profile polishing, mock interviews, and booking support, the entire experience became structured and smooth.”`,
+    paragraph: `“Achievers Academy helped me go beyond just preparing for exams like GRE and TOEFL by teaching me the correct approach for the exam using optimal strategy, which greatly helped in the verbal section.\n\nThe organization enlightened me with opportunities for profile building through relevant certifications, research outreach, and collaborative projects with peers.\n\nThe application phase was intensive, a different process and set of questions for each college—but with Pallavi Ma'am’s guidance, profile polishing, mock interviews, and booking support, the entire experience became structured and smooth.”`,
   },
   {
     name: "Samruddhi Kale",
     major: "MS in Data Science",
-    image: "/img/samruddhi.jpg", // Replace with actual path or URL
+    image: "/img/samruddhi.jpg",
     admits: [
       "University of Southern California (USC)",
       "Boston University",
@@ -50,85 +39,130 @@ The application phase was intensive, a different process and set of questions fo
       "Indiana University Bloomington (IUB)",
     ],
   },
+  {
+    name: "Rohan Mehta",
+    major: "MS in Computer Science",
+    image: "/img/rohan.jpg",
+    admits: [
+      "Carnegie Mellon University",
+      "University of California, Berkeley",
+      "University of Michigan, Ann Arbor",
+    ],
+    paragraph: `“The mentorship and resources at Achievers Academy were invaluable for my journey. The mock interviews and application reviews made a huge difference.”`,
+  },
+  {
+    name: "Priya Sharma",
+    major: "MBA",
+    image: "/img/priya.jpg",
+    admits: [
+      "Harvard Business School",
+      "INSEAD",
+      "London Business School",
+    ],
+  },
+  {
+    name: "Amit Patel",
+    major: "MS in Mechanical Engineering",
+    image: "/img/amit.jpg",
+    admits: [
+      "ETH Zurich",
+      "TU Munich",
+      "Purdue University",
+    ],
+  },
 ];
 
-// Card Component
-const TestimonialCard = ({ data, isCenter }) => (
-  <Box
-    bg="#0C2B57"
-    color="white"
-    borderRadius="lg"
-    p={5}
-    w={isCenter ? "500px" : "300px"}
-    minH={isCenter ? "auto" : "350px"}
-    boxShadow={isCenter ? "lg" : "base"}
-    border={isCenter ? "2px solid #ffffff30" : "1px solid #ffffff20"}
-    transition="all 0.3s"
-    overflow="hidden"
-  >
-    <Flex align="center" mb={4}>
-      <Image
-        src={data.image}
-        boxSize="70px"
-        borderRadius="full"
-        objectFit="cover"
-        mr={4}
-      />
-      <Box>
-        <Text fontWeight="bold">{data.name}</Text>
-        <Text fontSize="sm" color="gray.300">
-          Major: {data.major}
-        </Text>
-      </Box>
-    </Flex>
-    <Box mb={2}>
-      <Text fontWeight="semibold" mb={1}>
-        Admits:
-      </Text>
-      <UnorderedList spacing={1} fontSize="sm" pl={5}>
-        {data.admits.map((a, idx) => (
-          <ListItem key={idx}>{a}</ListItem>
-        ))}
-      </UnorderedList>
-    </Box>
-    {isCenter && data.paragraph && (
-      <Text fontSize="sm" color="gray.200" mt={3} whiteSpace="pre-line">
-        {data.paragraph}
-      </Text>
-    )}
-  </Box>
-);
+function get3Indices(center, total) {
+  const prev = (center - 1 + total) % total;
+  const next = (center + 1) % total;
+  return [prev, center, next];
+}
 
-// Main Component
+function truncate(str, n) {
+  return str && str.length > n ? str.slice(0, n - 1) + "…" : str;
+}
+
 export default function Testimonials() {
-  const centerIndex = 1; // The middle card (Viraj)
+  const [centerIndex, setCenterIndex] = useState(1);
+  const [slideDir, setSlideDir] = useState(null);
+  const [isSliding, setIsSliding] = useState(false);
+  const total = testimonials.length;
+  const rowRef = useRef();
+  const CARD_WIDTH = 350 + 56;
+  
+  const visible = get3Indices(centerIndex, total);
+
+  
+  let translateX = 0;
+  if (slideDir === "left") translateX = -CARD_WIDTH;
+  if (slideDir === "right") translateX = CARD_WIDTH;
+
+  const handlePrev = () => {
+    if (isSliding) return;
+    setSlideDir("right");
+    setIsSliding(true);
+    setTimeout(() => {
+      setCenterIndex((prev) => (prev - 1 + total) % total);
+      setSlideDir(null);
+      setIsSliding(false);
+    }, 500);
+  };
+  const handleNext = () => {
+    if (isSliding) return;
+    setSlideDir("left");
+    setIsSliding(true);
+    setTimeout(() => {
+      setCenterIndex((prev) => (prev + 1) % total);
+      setSlideDir(null);
+      setIsSliding(false);
+    }, 500);
+  };
 
   return (
-    <Box bg="#012C6D" py={12} px={[4, 10]}>
-      <Heading
-        color="white"
-        textAlign="center"
-        mb={10}
-        fontSize={["2xl", "3xl", "4xl"]}
-      >
-        Hear From Our Achievers
-      </Heading>
-
-      <Flex
-        py={4}
-        overflowX="auto"
-        justifyContent="center"
-        flexWrap="nowrap"
-        gap={6}
-        css={{
-          "&::-webkit-scrollbar": { display: "none" },
-          scrollbarWidth: "none",
+    <div className="testimonials-carousel">
+      <Heading className="testimonials-heading">Hear From Our Achievers</Heading>
+      <button className="carousel-arrow left" onClick={handlePrev} aria-label="Previous" disabled={isSliding}>&#8592;</button>
+      <button className="carousel-arrow right" onClick={handleNext} aria-label="Next" disabled={isSliding}>&#8594;</button>
+      <div
+        className="carousel-inner"
+        ref={rowRef}
+        style={{
+          transform: `translateX(${translateX}px)`,
+          transition: slideDir ? "transform 0.5s cubic-bezier(0.4,0,0.2,1)" : "none"
         }}
       >
-        {testimonials.map((t, i) => (
-          <TestimonialCard key={i} data={t} isCenter={i === centerIndex} />
+        {visible.map((idx, i) => (
+          <div
+            key={idx}
+            className={
+              "testimonial-card" + (i === 1 ? " center" : "")
+            }
+          >
+            <div className="testimonial-header">
+              <Image
+                src={testimonials[idx].image}
+                className="testimonial-image"
+                alt={testimonials[idx].name}
+              />
+              <div>
+                <Text className="testimonial-name">{testimonials[idx].name}</Text>
+                <Text className="testimonial-major">Major: {testimonials[idx].major}</Text>
+              </div>
+            </div>
+            <div>
+              <Text className="testimonial-admits">Admits:</Text>
+              <UnorderedList className="testimonial-list">
+                {testimonials[idx].admits.map((a, j) => (
+                  <ListItem key={j}>{a}</ListItem>
+                ))}
+              </UnorderedList>
+            </div>
+            {i === 1 && testimonials[idx].paragraph && (
+              <Text className="testimonial-paragraph">{truncate(testimonials[idx].paragraph, 100)}</Text>
+            )}
+          </div>
         ))}
-      </Flex>
-    </Box>
+      </div>
+    </div>
   );
 }
