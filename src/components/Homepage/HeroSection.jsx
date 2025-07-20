@@ -9,14 +9,14 @@ import {
     Container,
 } from "@chakra-ui/react";
 import heroImage from "../../img/bannerphotos/edit2.jpg"; // Adjust path if needed
-
+import heroImage2 from "../../img/testi/256101.png"
 export default function HeroSection() {
     return (
         <Box px={4} py={8}>
             <Container maxW="8xl" px={0}>
                 <Box position="relative" borderRadius="2xl" overflow="hidden">
                     <Image
-                        src={heroImage} // replace this with your image path
+                        src={heroImage2 }// replace this with your image path
                         alt="Hero Image"
                         w="100%"
                         h={{ base: "400px", md: "600px" }}
