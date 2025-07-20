@@ -88,11 +88,7 @@ export default function AboutUs() {
                         >
                             <NavLink to="/testprep/Gre" >VIEW DETAILS</NavLink>
                         </Button> */}
-                        <Link
-                            href="/testprep/Gre"
-                            
-                            _hover={{ textDecoration: 'none' }}
-                        >
+                        <NavLink to="/testprep/Gre" style={{ width: "100%" }}>
                             <Button
                                 bg="#134BE4"
                                 color="white"
@@ -106,7 +102,8 @@ export default function AboutUs() {
                             >
                                 VIEW DETAILS
                             </Button>
-                        </Link>
+                        </NavLink>
+
                     </Box>
 
                     {/* TOEFL/IELTS */}
@@ -131,11 +128,8 @@ export default function AboutUs() {
                         <Text fontSize="14px" color="gray.600" mb={4}>
                             It is a language proficiency test that checks a candidate’s English language abilities on four sections namely reading, writing, speaking, and listening.
                         </Text>
-                        <Link
-                            href="/testprep/Tofel"
-                            
-                            _hover={{ textDecoration: 'none' }}
-                        >
+
+                        <NavLink to="/testprep/Tofel" style={{ width: "100%" }}>
                             <Button
                                 bg="#134BE4"
                                 color="white"
@@ -149,7 +143,9 @@ export default function AboutUs() {
                             >
                                 VIEW DETAILS
                             </Button>
-                        </Link>
+                        </NavLink>
+
+
 
                     </Box>
 
@@ -175,11 +171,7 @@ export default function AboutUs() {
                         <Text fontSize="14px" color="gray.600" mb={4}>
                             It is a standardized test for undergraduate applications to most STEM programs abroad. It tests a candidate’s verbal and quantitative abilities.
                         </Text>
-                       <Link
-                            href="/testprep/Sat "
-                            
-                            _hover={{ textDecoration: 'none' }}
-                        >
+                        <NavLink to="/testprep/Sat" style={{ width: "100%" }}>
                             <Button
                                 bg="#134BE4"
                                 color="white"
@@ -193,7 +185,8 @@ export default function AboutUs() {
                             >
                                 VIEW DETAILS
                             </Button>
-                        </Link>
+                        </NavLink>
+
 
                     </Box>
                 </SimpleGrid>

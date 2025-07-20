@@ -21,17 +21,26 @@ import {
   Image,
   Link
 } from "@chakra-ui/react";
+// import { useLocation } from "react-router-dom"; // already present
+
 import { HamburgerIcon, CloseIcon, ChevronDownIcon, ChevronUpIcon } from "@chakra-ui/icons";
 import { Link as RouterLink } from "react-router-dom";
 import { Link as ChakraLink } from "@chakra-ui/react";
-import { useLocation } from "react-router-dom";
+// import { useLocation } from "react-router-dom";
 
 import logo from "../../img/mainlogo/logoname.png";
+import { useLocation } from "react-router-dom"; // already present
 
 export default function Navbar() {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [servicesOpen, setServicesOpen] = useState(false);
   const location = useLocation();
+  const isServicesPage = [
+    "/testprep",
+    "/profilebuilding",
+    "/visacounseling",
+    "/applicationcounseling",
+  ].some(path => location.pathname.startsWith(path));
 
   const toggleServices = () => setServicesOpen(!servicesOpen);
   const NavLink = ({ to, children }) => {
@@ -84,6 +93,8 @@ export default function Navbar() {
           <NavLink to="/">Home</NavLink>
           <NavLink to="/aboutus" >About Us</NavLink>
 
+
+
           <Menu>
             <MenuButton
               px={3}
@@ -91,8 +102,8 @@ export default function Navbar() {
               rounded="md"
               fontFamily="Montserrat"
               fontSize="16px"
-              fontWeight="500"
-              color="#999999"
+              fontWeight={isServicesPage ? "600" : "500"}
+              color={isServicesPage ? "#024877" : "#999999"}
               _hover={{ color: "#000", bg: "blue.50" }}
               as={Button}
               variant="ghost"
@@ -101,14 +112,21 @@ export default function Navbar() {
               Services
             </MenuButton>
             <MenuList>
-              <MenuItem>  <NavLink to="/testprep" >Test Prep</NavLink></MenuItem>
-
-
-              <MenuItem>  <NavLink to="/profilebuilding" >Profile Building</NavLink></MenuItem>
-              <MenuItem>  <NavLink to="/applicationcounseling" >Application Counselling</NavLink></MenuItem>
-              <MenuItem>  <NavLink to="/visacounseling" >Visa Counselling</NavLink></MenuItem>
+              <MenuItem>
+                <NavLink to="/testprep">Test Prep</NavLink>
+              </MenuItem>
+              <MenuItem>
+                <NavLink to="/profilebuilding">Profile Building</NavLink>
+              </MenuItem>
+              <MenuItem>
+                <NavLink to="/applicationcounseling">Application Counselling</NavLink>
+              </MenuItem>
+              <MenuItem>
+                <NavLink to="/visacounseling">Visa Counselling</NavLink>
+              </MenuItem>
             </MenuList>
           </Menu>
+
 
           <NavLink>Testimonials</NavLink>
           <NavLink to="/contactus" >Contact Us</NavLink>
