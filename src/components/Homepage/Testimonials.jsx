@@ -16,6 +16,10 @@ const testimonials = [
       "ISAE-SUPAERO, France",
       "University of Illinois Urbana-Champaign, USA",
     ],
+    paragraph: `“From preparing for the GRE and TOEFL to receiving offers from the world’s top universities, Mrs. Pallavi Desai has been both an exceptional mentor and teacher. With Achievers Academy, I’ve been accepted into leading MS Aerospace Engineering programs at Stanford University, Georgia Tech, Purdue University, and UIUC in the US, as well as with a full scholarship at ISAE-SUPAERO in France.
+
+Mrs. Desai brings out the best in her students, helping us build strong, well-rounded profiles, and supporting us through every step, be it test prep, applications, or visa process, and even beyond. Every dream needs direction, and Achievers Academy gives you both.”`,
+
   },
   {
     name: "Viraj Parmaaj",
@@ -26,7 +30,9 @@ const testimonials = [
       "University of Maryland College Park",
       "Northeastern University",
     ],
-    paragraph: `“Achievers Academy helped me go beyond just preparing for exams like GRE and TOEFL by teaching me the correct approach for the exam using optimal strategy, which greatly helped in the verbal section.\n\nThe organization enlightened me with opportunities for profile building through relevant certifications, research outreach, and collaborative projects with peers.\n\nThe application phase was intensive, a different process and set of questions for each college—but with Pallavi Ma'am’s guidance, profile polishing, mock interviews, and booking support, the entire experience became structured and smooth.”`,
+    paragraph: `“Achievers Academy helped me go beyond just preparing for exams like GRE and TOEFL by teaching me the ‘correct’ approach for the exam using optimal strategy, which greatly helped in the verbal section. 
+They constantly enlightened me with opportunities for profile building through relevant certifications, research outreach, and collaborative projects with our academy peers, which i believe was one of the culture practices that set Achievers apart.
+The application phase was intensive, a different process and set of questions for each college but with Pallavi Ma’am’s resolute guidance and patience over multiple SOP iterations to make it perfect, I was able to present my profile effectively, making my application stand out. Even the visa counselling, often overlooked, was handled step-by-step, from bookings to mock interviews, giving me full confidence during the actual event which can be rather daunting.”`,
   },
   {
     name: "Samruddhi Kale",
@@ -37,38 +43,42 @@ const testimonials = [
       "Boston University",
       "George Washington University (GWU)",
       "Indiana University Bloomington (IUB)",
-    ],
+    ], paragraph: `“Joining Achievers Academy in my third year of engineering was the best decision I made for my MS journey. Pallavi ma’am’s GRE and TOEFL prep sessions were detailed and personal, with individual attention and tailored resources. Alongside this, she helped me build a strong profile through domain-relevant projects and certifications. When it came to shortlisting universities, her honest, student-first advice gave me confidence. Our LORs and SOPs were not templates, they were carefully crafted to tell my story. With her help, I secured admits from USC, Boston University, GWU, and IUB, even from a tier-3 undergraduate college background.”`,
   },
   {
-    name: "Rohan Mehta",
-    major: "MS in Computer Science",
+    name: "Prasad Vanne",
+    major: "MS in Information Systems",
     image: "/img/rohan.jpg",
     admits: [
-      "Carnegie Mellon University",
-      "University of California, Berkeley",
-      "University of Michigan, Ann Arbor",
+      "New York University (NYU)",
+      "University of Illinois Chicago (UIUC)",
+      "Northeastern University (NEU)",
+      "University of Wisconsin-Madison"
     ],
-    paragraph: `“The mentorship and resources at Achievers Academy were invaluable for my journey. The mock interviews and application reviews made a huge difference.”`,
+    paragraph: `“The whole study abroad process is really overwhelming when you start, but having Pallavi ma'am guide me made all the difference. Right from TOEFL prep, with her clear instructions and mock tests, to shortlisting universities and making the right choices for my goals, she was there at every step. Her advice was always on point and came from real experience, which gave me a lot of confidence. The visa process, in particular, felt much easier with her support, right from what to expect to how to answer questions and practice through mock interviews, she takes care of it all. What I value most is that, even now, as I get ready to move to the US, she’s still just as willing to guide me. I’m really grateful for everything ma'am has done to make this journey smoother for me.”`,
   },
   {
-    name: "Priya Sharma",
-    major: "MBA",
+    name: "Anay Joglekar",
+    major: "BS in Biomedical Engineering",
     image: "/img/priya.jpg",
     admits: [
-      "Harvard Business School",
-      "INSEAD",
-      "London Business School",
-    ],
+      "Imperial College London",
+      "University College London (UCL)",
+      "University of Washington (UWash)",
+      "Purdue University",
+    ], paragraph: `“When I was in grade nine starting my IGCSEs, I barely understood what that meant for my future. That’s when Pallavi ma'am stepped in and changed everything. She introduced me to the world of education beyond my country and connected me with some incredible tutors. With her guidance, I enrolled in courses and summer schools, which significantly boosted both my profile and personal growth. Pallavi ma'am also tutored me for my SAT exams, helped me navigate my college applications, and guided me through my TOEFL exams. She was instrumental in building a strong portfolio and always knew how to put my parents at ease. Thanks to her continuous support and expertise, I have now received offers from top universities over the world. Altogether, I have been awarded scholarships worth over $250,000 from various institutions. I genuinely owe my success and confidence to Pallavi ma'am's exceptional guidance and care.”`,
   },
   {
-    name: "Amit Patel",
-    major: "MS in Mechanical Engineering",
+    name: "Rujuta Kumbhojkar",
+    major: "MA in Design Management",
     image: "/img/amit.jpg",
     admits: [
-      "ETH Zurich",
-      "TU Munich",
-      "Purdue University",
+      "Royal College of Arts",
+      "University of the Arts London",
+      "Loughborough University",
     ],
+    paragraph: `“Pallavi ma'am's guidance and targeted support were instrumental in helping me achieve my college admission goals. A particular highlight was her concrete, actionable feedback, and incredible attention to detail while building my SOP. This ensured the writing truly reflected my strengths and aspirations. Her analytical and well-informed perspective on global geopolitics helped me take an informed decision regarding my admissions. I’m grateful for her expert guidance and highly recommend her to anyone looking for comprehensive support throughout the application and visa process.”`,
+
   },
 ];
 
@@ -89,10 +99,10 @@ export default function Testimonials() {
   const total = testimonials.length;
   const rowRef = useRef();
   const CARD_WIDTH = 350 + 56;
-  
+
   const visible = get3Indices(centerIndex, total);
 
-  
+
   let translateX = 0;
   if (slideDir === "left") translateX = -CARD_WIDTH;
   if (slideDir === "right") translateX = CARD_WIDTH;
@@ -158,7 +168,8 @@ export default function Testimonials() {
               </UnorderedList>
             </div>
             {i === 1 && testimonials[idx].paragraph && (
-              <Text className="testimonial-paragraph">{truncate(testimonials[idx].paragraph, 100)}</Text>
+              <Text className="testimonial-paragraph full">{testimonials[idx].paragraph}</Text>
+
             )}
           </div>
         ))}
