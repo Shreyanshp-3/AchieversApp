@@ -1,8 +1,6 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import "./Testimonials.css";
 import { Box, Text, Heading, UnorderedList, ListItem, Image, Flex } from "@chakra-ui/react";
-
-
 
 const testimonials = [
   {
@@ -19,7 +17,6 @@ const testimonials = [
     paragraph: `“From preparing for the GRE and TOEFL to receiving offers from the world’s top universities, Mrs. Pallavi Desai has been both an exceptional mentor and teacher. With Achievers Academy, I’ve been accepted into leading MS Aerospace Engineering programs at Stanford University, Georgia Tech, Purdue University, and UIUC in the US, as well as with a full scholarship at ISAE-SUPAERO in France.
 
 Mrs. Desai brings out the best in her students, helping us build strong, well-rounded profiles, and supporting us through every step, be it test prep, applications, or visa process, and even beyond. Every dream needs direction, and Achievers Academy gives you both.”`,
-
   },
   {
     name: "Viraj Parmaaj",
@@ -78,7 +75,6 @@ The application phase was intensive, a different process and set of questions fo
       "Loughborough University",
     ],
     paragraph: `“Pallavi ma'am's guidance and targeted support were instrumental in helping me achieve my college admission goals. A particular highlight was her concrete, actionable feedback, and incredible attention to detail while building my SOP. This ensured the writing truly reflected my strengths and aspirations. Her analytical and well-informed perspective on global geopolitics helped me take an informed decision regarding my admissions. I’m grateful for her expert guidance and highly recommend her to anyone looking for comprehensive support throughout the application and visa process.”`,
-
   },
 ];
 
@@ -101,7 +97,6 @@ export default function Testimonials() {
   const CARD_WIDTH = 350 + 56;
 
   const visible = get3Indices(centerIndex, total);
-
 
   let translateX = 0;
   if (slideDir === "left") translateX = -CARD_WIDTH;
@@ -128,11 +123,30 @@ export default function Testimonials() {
     }, 500);
   };
 
+  // Auto-scroll on mobile: every 5s, only if width <= 900px
+  useEffect(() => {
+    const isMobile = window.innerWidth <= 900;
+    if (!isMobile) return;
+    if (isSliding) return;
+    const interval = setInterval(() => {
+      handleNext();
+    }, 5000);
+    return () => clearInterval(interval);
+    // eslint-disable-next-line
+  }, [centerIndex, isSliding]);
+
+  // Hide arrows on mobile
+  const isMobile = typeof window !== "undefined" && window.innerWidth <= 900;
+
   return (
     <div className="testimonials-carousel">
       <Heading className="testimonials-heading">Hear From Our Achievers</Heading>
-      <button className="carousel-arrow left" onClick={handlePrev} aria-label="Previous" disabled={isSliding}>&#8592;</button>
-      <button className="carousel-arrow right" onClick={handleNext} aria-label="Next" disabled={isSliding}>&#8594;</button>
+      {!isMobile && (
+        <>
+          <button className="carousel-arrow left" onClick={handlePrev} aria-label="Previous" disabled={isSliding}>&#8592;</button>
+          <button className="carousel-arrow right" onClick={handleNext} aria-label="Next" disabled={isSliding}>&#8594;</button>
+        </>
+      )}
       <div
         className="carousel-inner"
         ref={rowRef}
@@ -169,7 +183,6 @@ export default function Testimonials() {
             </div>
             {i === 1 && testimonials[idx].paragraph && (
               <Text className="testimonial-paragraph full">{testimonials[idx].paragraph}</Text>
-
             )}
           </div>
         ))}

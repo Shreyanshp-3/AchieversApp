@@ -65,7 +65,7 @@ const Trainers = () => {
                 borderRadius="md"
                 objectFit="cover"
                 width={{ base: "100px", md: "160px" }}
-                height={{ base: "140px", md: "240px" }}
+                height={{ base: "140px", md: "210px" }}
               />
               <VStack align="start" spacing={1} flex="1">
                 <Text fontWeight="bold" fontSize={{ base: "12px", md: "lg" }}>
