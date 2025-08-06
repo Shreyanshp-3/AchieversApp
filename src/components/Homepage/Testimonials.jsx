@@ -1,12 +1,18 @@
 import React, { useState, useRef, useEffect } from "react";
 import "./Testimonials.css";
 import { Box, Text, Heading, UnorderedList, ListItem, Image, Flex } from "@chakra-ui/react";
+import t1 from "../../img/testi/t1.png";
+import t2 from "../../img/testi/t2.png";
+import t3 from "../../img/testi/t3.png";
+import t4 from "../../img/testi/t4.png";
+import t5 from "../../img/testi/t5.png";
+import t6 from "../../img/testi/t6.png";
 
 const testimonials = [
   {
     name: "Aditya Kothari",
     major: "MS in Aerospace Engineering",
-    image: "/img/aditya.jpg",
+    image: t1,
     admits: [
       "Stanford University, CA, USA",
       "Georgia Tech, USA",
@@ -21,7 +27,7 @@ Mrs. Desai brings out the best in her students, helping us build strong, well-ro
   {
     name: "Viraj Parmaaj",
     major: "MS in Statistics",
-    image: "/img/viraj.jpg",
+    image: t5,
     admits: [
       "University of Illinois Urbana-Champaign (UIUC)",
       "University of Maryland College Park",
@@ -34,7 +40,7 @@ The application phase was intensive, a different process and set of questions fo
   {
     name: "Samruddhi Kale",
     major: "MS in Data Science",
-    image: "/img/samruddhi.jpg",
+    image: t4,
     admits: [
       "University of Southern California (USC)",
       "Boston University",
@@ -45,7 +51,7 @@ The application phase was intensive, a different process and set of questions fo
   {
     name: "Prasad Vanne",
     major: "MS in Information Systems",
-    image: "/img/rohan.jpg",
+    image: t2,
     admits: [
       "New York University (NYU)",
       "University of Illinois Chicago (UIUC)",
@@ -57,7 +63,7 @@ The application phase was intensive, a different process and set of questions fo
   {
     name: "Anay Joglekar",
     major: "BS in Biomedical Engineering",
-    image: "/img/priya.jpg",
+    image: t3,
     admits: [
       "Imperial College London",
       "University College London (UCL)",
@@ -68,7 +74,7 @@ The application phase was intensive, a different process and set of questions fo
   {
     name: "Rujuta Kumbhojkar",
     major: "MA in Design Management",
-    image: "/img/amit.jpg",
+    image: t6,
     admits: [
       "Royal College of Arts",
       "University of the Arts London",

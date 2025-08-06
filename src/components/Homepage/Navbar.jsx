@@ -93,8 +93,6 @@ export default function Navbar() {
           <NavLink to="/">Home</NavLink>
           <NavLink to="/aboutus" >About Us</NavLink>
 
-
-
           <Menu>
             <MenuButton
               px={3}
@@ -111,21 +109,23 @@ export default function Navbar() {
             >
               Services
             </MenuButton>
-            <MenuList>
-              <MenuItem>
-                <NavLink to="/testprep">Test Prep</NavLink>
+
+            <MenuList display="flex" flexDirection="column"> {/* Force vertical layout */}
+              <MenuItem as={NavLink} to="/testprep" paddingY={2}>
+                Test Prep
               </MenuItem>
-              <MenuItem>
-                <NavLink to="/profilebuilding">Profile Building</NavLink>
+              <MenuItem as={NavLink} to="/profilebuilding" paddingY={2}>
+                Profile Building
               </MenuItem>
-              <MenuItem>
-                <NavLink to="/applicationcounseling">Application Counselling</NavLink>
+              <MenuItem as={NavLink} to="/applicationcounseling" paddingY={2}>
+                Application Counselling
               </MenuItem>
-              <MenuItem>
-                <NavLink to="/visacounseling">Visa Counselling</NavLink>
+              <MenuItem as={NavLink} to="/visacounseling" paddingY={2}>
+                Visa Counselling
               </MenuItem>
             </MenuList>
           </Menu>
+
 
 
           <NavLink>Testimonials</NavLink>
@@ -153,230 +153,232 @@ export default function Navbar() {
         </Link>
       </Flex>
 
-      {isOpen && (
-        <Drawer placement="right" onClose={onClose} isOpen={isOpen}>
-          <DrawerOverlay />
-          <DrawerContent>
-            <DrawerHeader
-              borderBottomWidth="1px"
-              textAlign="center"
-              fontSize="14px"
-              mb={4}
-              mt={2}
-              fontWeight="700"
-              color="#134BE4"
-              fontFamily="Montserrat"
-              textTransform="uppercase"
-            >
-              Quick Links
-            </DrawerHeader>
-            <DrawerCloseButton mt={2} />
+      {
+        isOpen && (
+          <Drawer placement="right" onClose={onClose} isOpen={isOpen}>
+            <DrawerOverlay />
+            <DrawerContent>
+              <DrawerHeader
+                borderBottomWidth="1px"
+                textAlign="center"
+                fontSize="14px"
+                mb={4}
+                mt={2}
+                fontWeight="700"
+                color="#134BE4"
+                fontFamily="Montserrat"
+                textTransform="uppercase"
+              >
+                Quick Links
+              </DrawerHeader>
+              <DrawerCloseButton mt={2} />
 
-            <DrawerBody mt={4} display="flex" flexDirection="column" justifyContent="space-between" pb={6}>
-              <VStack align="stretch" spacing={1} w="100%">
-                {/* HOME */}
-                <Button
-                  as={(props) => (
-                    <NavLink
-                      {...props}
-                      to="/"
-                      style={({ isActive }) => ({
-                        display: "flex",
-                        alignItems: "center",
-                        justifyContent: "center",
-                        width: "100%",
-                        background: isActive ? "#F0F4FF" : "transparent",
-                        color: isActive ? "#134BE4" : "#999999",
-                        fontWeight: isActive ? "bold" : "medium",
-                        borderRadius: "0",
-                        boxShadow: isActive ? "0 2px 8px rgba(19,75,228,0.08)" : "none",
-                        border: isActive ? "2px solid #134BE4" : "2px solid transparent",
-                        textAlign: "center",
-                      })}
-                    />
-                  )}
-                  variant="ghost"
-                  w="100%"
-                  px={0}
-                  py={5}
-                  justifyContent="center"
-                  fontFamily="Montserrat"
-                  fontSize="18px"
-                  textAlign="center"
-                  _hover={{ bg: "#F0F4FF", color: "#134BE4" }}
-                >
-                  Home
-                </Button>
-
-                {/* ABOUT US */}
-                <Button
-                  as={(props) => (
-                    <NavLink
-                      {...props}
-                      to="/aboutus"
-                      style={({ isActive }) => ({
-                        display: "block",
-                        width: "100%",
-                        background: isActive ? "#F0F4FF" : "transparent",
-                        color: isActive ? "#134BE4" : "#999999",
-                        fontWeight: isActive ? "bold" : "medium",
-                        borderRadius: "0",
-                        boxShadow: isActive ? "0 2px 8px rgba(19,75,228,0.08)" : "none",
-                        border: isActive ? "2px solid #134BE4" : "2px solid transparent",
-                        textAlign: "center",
-                      })}
-                    />
-                  )}
-                  variant="ghost"
-                  w="100%"
-                  px={0}
-                  py={5}
-                  justifyContent="center"
-                  fontFamily="Montserrat"
-                  fontSize="18px"
-                  textAlign="center"
-                  _hover={{ bg: "#F0F4FF", color: "#134BE4" }}
-                >
-                  About Us
-                </Button>
-
-                {/* SERVICES */}
-                <Box w="100%">
+              <DrawerBody mt={4} display="flex" flexDirection="column" justifyContent="space-between" pb={6}>
+                <VStack align="stretch" spacing={1} w="100%">
+                  {/* HOME */}
                   <Button
-                    onClick={toggleServices}
+                    as={(props) => (
+                      <NavLink
+                        {...props}
+                        to="/"
+                        style={({ isActive }) => ({
+                          display: "flex",
+                          alignItems: "center",
+                          justifyContent: "center",
+                          width: "100%",
+                          background: isActive ? "#F0F4FF" : "transparent",
+                          color: isActive ? "#134BE4" : "#999999",
+                          fontWeight: isActive ? "bold" : "medium",
+                          borderRadius: "0",
+                          boxShadow: isActive ? "0 2px 8px rgba(19,75,228,0.08)" : "none",
+                          border: isActive ? "2px solid #134BE4" : "2px solid transparent",
+                          textAlign: "center",
+                        })}
+                      />
+                    )}
+                    variant="ghost"
                     w="100%"
                     px={0}
                     py={5}
-                    variant="ghost"
                     justifyContent="center"
                     fontFamily="Montserrat"
                     fontSize="18px"
-                    fontWeight="medium"
                     textAlign="center"
-                    color={servicesOpen ? "#134BE4" : "#999999"}
-                    bg={servicesOpen ? "#F0F4FF" : "transparent"}
-                    borderLeft={servicesOpen ? "4px solid #134BE4" : "4px solid transparent"}
-                    borderRadius="0"
-                    rightIcon={servicesOpen ? <ChevronUpIcon /> : <ChevronDownIcon />}
-                    _hover={{ bg: "#F0F4FF" }}
+                    _hover={{ bg: "#F0F4FF", color: "#134BE4" }}
                   >
-                    Services
+                    Home
                   </Button>
-                  {servicesOpen && (
-                    <VStack align="stretch" spacing={0} mt={2} w="100%">
-                      {[
-                        { name: "Test Prep", path: "/testprep" },
-                        { name: "Profile Building", path: "/profilebuilding" },
-                        { name: "Visa Counselling", path: "/visacounseling" },
-                        { name: "Application Counselling", path: "/applicationcounseling" },
-                      ].map(({ name, path }) => (
-                        <Button
-                          key={path}
-                          as={(props) => (
-                            <NavLink
-                              {...props}
-                              to={path}
-                              style={({ isActive }) => ({
-                                display: "block",
-                                width: "100%",
-                                background: isActive ? "#F0F4FF" : "transparent",
-                                color: isActive ? "#134BE4" : "#999999",
-                                fontWeight: isActive ? "bold" : "medium",
-                                borderRadius: "0",
-                                boxShadow: isActive ? "0 2px 8px rgba(19,75,228,0.08)" : "none",
-                                border: isActive ? "2px solid #134BE4" : "2px solid transparent",
-                                textAlign: "center",
-                              })}
-                            />
-                          )}
-                          variant="ghost"
-                          w="100%"
-                          px={0}
-                          py={5}
-                          justifyContent="center"
-                          fontFamily="Montserrat"
-                          fontSize="18px"
-                          textAlign="center"
-                          _hover={{ bg: "#F0F4FF", color: "#134BE4" }}
-                        >
-                          {name}
-                        </Button>
-                      ))}
-                    </VStack>
-                  )}
-                </Box>
 
-                {/* TESTIMONIALS */}
-                <Button
-                  as={(props) => (
-                    <NavLink
-                      {...props}
-                      to="/testimonials"
-                      style={({ isActive }) => ({
-                        display: "block",
-                        width: "100%",
-                        background: isActive ? "#F0F4FF" : "transparent",
-                        color: isActive ? "#134BE4" : "#999999",
-                        fontWeight: isActive ? "bold" : "medium",
-                        borderRadius: "0",
-                        boxShadow: isActive ? "0 2px 8px rgba(19,75,228,0.08)" : "none",
-                        border: isActive ? "2px solid #134BE4" : "2px solid transparent",
-                        textAlign: "center",
-                      })}
-                    />
-                  )}
-                  variant="ghost"
-                  w="100%"
-                  px={0}
-                  py={5}
-                  justifyContent="center"
-                  fontFamily="Montserrat"
-                  fontSize="18px"
-                  textAlign="center"
-                  _hover={{ bg: "#F0F4FF", color: "#134BE4" }}
-                >
-                  Testimonials
-                </Button>
+                  {/* ABOUT US */}
+                  <Button
+                    as={(props) => (
+                      <NavLink
+                        {...props}
+                        to="/aboutus"
+                        style={({ isActive }) => ({
+                          display: "block",
+                          width: "100%",
+                          background: isActive ? "#F0F4FF" : "transparent",
+                          color: isActive ? "#134BE4" : "#999999",
+                          fontWeight: isActive ? "bold" : "medium",
+                          borderRadius: "0",
+                          boxShadow: isActive ? "0 2px 8px rgba(19,75,228,0.08)" : "none",
+                          border: isActive ? "2px solid #134BE4" : "2px solid transparent",
+                          textAlign: "center",
+                        })}
+                      />
+                    )}
+                    variant="ghost"
+                    w="100%"
+                    px={0}
+                    py={5}
+                    justifyContent="center"
+                    fontFamily="Montserrat"
+                    fontSize="18px"
+                    textAlign="center"
+                    _hover={{ bg: "#F0F4FF", color: "#134BE4" }}
+                  >
+                    About Us
+                  </Button>
 
-                {/* CONTACT US */}
-                <Button
-                  as={(props) => (
-                    <NavLink
-                      {...props}
-                      to="/contactus"
-                      style={({ isActive }) => ({
-                        display: "flex",
-                        alignItems: "center",
-                        justifyContent: "center",
-                        width: "100%",
-                        background: isActive ? "#F0F4FF" : "transparent",
-                        color: isActive ? "#134BE4" : "#999999",
-                        fontWeight: isActive ? "bold" : "medium",
-                        borderRadius: "0",
-                        boxShadow: isActive ? "0 2px 8px rgba(19,75,228,0.08)" : "none",
-                        border: isActive ? "2px solid #134BE4" : "2px solid transparent",
-                        textAlign: "center",
-                      })}
-                    />
-                  )}
-                  variant="ghost"
-                  w="100%"
-                  px={0}
-                  py={5}
-                  justifyContent="center"
-                  fontFamily="Montserrat"
-                  fontSize="18px"
-                  textAlign="center"
-                  _hover={{ bg: "#F0F4FF", color: "#134BE4" }}
-                >
-                  Contact Us
-                </Button>
-              </VStack>
-            </DrawerBody>
-          </DrawerContent>
-        </Drawer>
-      )}
+                  {/* SERVICES */}
+                  <Box w="100%">
+                    <Button
+                      onClick={toggleServices}
+                      w="100%"
+                      px={0}
+                      py={5}
+                      variant="ghost"
+                      justifyContent="center"
+                      fontFamily="Montserrat"
+                      fontSize="18px"
+                      fontWeight="medium"
+                      textAlign="center"
+                      color={servicesOpen ? "#134BE4" : "#999999"}
+                      bg={servicesOpen ? "#F0F4FF" : "transparent"}
+                      borderLeft={servicesOpen ? "4px solid #134BE4" : "4px solid transparent"}
+                      borderRadius="0"
+                      rightIcon={servicesOpen ? <ChevronUpIcon /> : <ChevronDownIcon />}
+                      _hover={{ bg: "#F0F4FF" }}
+                    >
+                      Services
+                    </Button>
+                    {servicesOpen && (
+                      <VStack align="stretch" spacing={0} mt={2} w="100%">
+                        {[
+                          { name: "Test Prep", path: "/testprep" },
+                          { name: "Profile Building", path: "/profilebuilding" },
+                          { name: "Visa Counselling", path: "/visacounseling" },
+                          { name: "Application Counselling", path: "/applicationcounseling" },
+                        ].map(({ name, path }) => (
+                          <Button
+                            key={path}
+                            as={(props) => (
+                              <NavLink
+                                {...props}
+                                to={path}
+                                style={({ isActive }) => ({
+                                  display: "block",
+                                  width: "100%",
+                                  background: isActive ? "#F0F4FF" : "transparent",
+                                  color: isActive ? "#134BE4" : "#999999",
+                                  fontWeight: isActive ? "bold" : "medium",
+                                  borderRadius: "0",
+                                  boxShadow: isActive ? "0 2px 8px rgba(19,75,228,0.08)" : "none",
+                                  border: isActive ? "2px solid #134BE4" : "2px solid transparent",
+                                  textAlign: "center",
+                                })}
+                              />
+                            )}
+                            variant="ghost"
+                            w="100%"
+                            px={0}
+                            py={5}
+                            justifyContent="center"
+                            fontFamily="Montserrat"
+                            fontSize="18px"
+                            textAlign="center"
+                            _hover={{ bg: "#F0F4FF", color: "#134BE4" }}
+                          >
+                            {name}
+                          </Button>
+                        ))}
+                      </VStack>
+                    )}
+                  </Box>
 
-    </Box>
+                  {/* TESTIMONIALS */}
+                  <Button
+                    as={(props) => (
+                      <NavLink
+                        {...props}
+                        to="/testimonials"
+                        style={({ isActive }) => ({
+                          display: "block",
+                          width: "100%",
+                          background: isActive ? "#F0F4FF" : "transparent",
+                          color: isActive ? "#134BE4" : "#999999",
+                          fontWeight: isActive ? "bold" : "medium",
+                          borderRadius: "0",
+                          boxShadow: isActive ? "0 2px 8px rgba(19,75,228,0.08)" : "none",
+                          border: isActive ? "2px solid #134BE4" : "2px solid transparent",
+                          textAlign: "center",
+                        })}
+                      />
+                    )}
+                    variant="ghost"
+                    w="100%"
+                    px={0}
+                    py={5}
+                    justifyContent="center"
+                    fontFamily="Montserrat"
+                    fontSize="18px"
+                    textAlign="center"
+                    _hover={{ bg: "#F0F4FF", color: "#134BE4" }}
+                  >
+                    Testimonials
+                  </Button>
+
+                  {/* CONTACT US */}
+                  <Button
+                    as={(props) => (
+                      <NavLink
+                        {...props}
+                        to="/contactus"
+                        style={({ isActive }) => ({
+                          display: "flex",
+                          alignItems: "center",
+                          justifyContent: "center",
+                          width: "100%",
+                          background: isActive ? "#F0F4FF" : "transparent",
+                          color: isActive ? "#134BE4" : "#999999",
+                          fontWeight: isActive ? "bold" : "medium",
+                          borderRadius: "0",
+                          boxShadow: isActive ? "0 2px 8px rgba(19,75,228,0.08)" : "none",
+                          border: isActive ? "2px solid #134BE4" : "2px solid transparent",
+                          textAlign: "center",
+                        })}
+                      />
+                    )}
+                    variant="ghost"
+                    w="100%"
+                    px={0}
+                    py={5}
+                    justifyContent="center"
+                    fontFamily="Montserrat"
+                    fontSize="18px"
+                    textAlign="center"
+                    _hover={{ bg: "#F0F4FF", color: "#134BE4" }}
+                  >
+                    Contact Us
+                  </Button>
+                </VStack>
+              </DrawerBody>
+            </DrawerContent>
+          </Drawer>
+        )
+      }
+
+    </Box >
   );
 }
