@@ -131,15 +131,13 @@ export default function Testimonials() {
 
   // Auto-scroll on mobile: every 5s, only if width <= 900px
   useEffect(() => {
-    const isMobile = window.innerWidth <= 900;
-    if (!isMobile) return;
-    if (isSliding) return;
-    const interval = setInterval(() => {
-      handleNext();
-    }, 5000);
-    return () => clearInterval(interval);
-    // eslint-disable-next-line
-  }, [centerIndex, isSliding]);
+  if (isSliding) return;
+  const interval = setInterval(() => {
+    handleNext();
+  }, 5000);
+  return () => clearInterval(interval);
+  // eslint-disable-next-line
+}, [centerIndex, isSliding]);
 
   // Hide arrows on mobile
   const isMobile = typeof window !== "undefined" && window.innerWidth <= 900;
@@ -147,12 +145,12 @@ export default function Testimonials() {
   return (
     <div className="testimonials-carousel">
       <Heading className="testimonials-heading">Hear From Our Achievers</Heading>
-      {!isMobile && (
+      {/* {!isMobile && ( */}
         <>
           <button className="carousel-arrow left" onClick={handlePrev} aria-label="Previous" disabled={isSliding}>&#8592;</button>
           <button className="carousel-arrow right" onClick={handleNext} aria-label="Next" disabled={isSliding}>&#8594;</button>
         </>
-      )}
+      {/* )} */}
       <div
         className="carousel-inner"
         ref={rowRef}
