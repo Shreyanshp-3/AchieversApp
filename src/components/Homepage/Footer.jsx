@@ -27,7 +27,7 @@
 //                 Achiever’s Academy
 //               </Heading>
 //               <Text fontSize="sm" lineHeight="tall" color="gray.300" textAlign={{ base: "justify" }}>
-//               Achievers Academy has built a strong reputation over 25 years in the overseas education industry, offering expert counseling, test prep, and application guidance. Our honest, personalized approach helps students reach their full potential and secure the opportunities they deserve. If you're seeking a dedicated partner for your study abroad journey, look no further. Join us and experience reliable support every step of the way.
+//               Global Achievers has built a strong reputation over 25 years in the overseas education industry, offering expert counseling, test prep, and application guidance. Our honest, personalized approach helps students reach their full potential and secure the opportunities they deserve. If you're seeking a dedicated partner for your study abroad journey, look no further. Join us and experience reliable support every step of the way.
 //               </Text>
 //             </Box>
   
@@ -98,7 +98,7 @@ const Footer = () => {
         {/* Left Section - About */}
         <Box flex="1" pr={{ md: 8 }}>
           <Text fontWeight="bold" fontSize="xl" mb={3}>
-            Achievers Academy
+            Global Achievers
           </Text>
           <Text
             fontSize="sm"
@@ -106,7 +106,7 @@ const Footer = () => {
             textAlign="justify"
             lineHeight="1.8"
           >
-            Achievers Academy has built a strong reputation over 25 years in the
+            Global Achievers has built a strong reputation over 25 years in the
             overseas education industry, offering expert counseling, test prep,
             and application guidance. Our honest, personalized approach helps
             students reach their full potential and secure the opportunities

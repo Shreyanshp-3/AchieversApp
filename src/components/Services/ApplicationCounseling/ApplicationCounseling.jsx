@@ -146,7 +146,7 @@ export default function AboutUs() {
                         Our Approach
                     </Heading>
                     <Text fontSize="15px" color="gray.700" lineHeight="1.8">
-                        At Achievers Academy every section is presented to the students through its objectives, expectations and strategies to be deployed to tackle the section successfully. Theoretical tips and techniques combined with demo tasks, especially for the writing and speaking sections make the lectures immersive. Students are encouraged to deliver their prompts during live lectures that allow the trainer to provide real-time feedback. Substantial practice examples, productive back and forth and timely suggestions culminate into a refined performance towards the end of a month and a half of the course duration.
+                        At Global Achievers every section is presented to the students through its objectives, expectations and strategies to be deployed to tackle the section successfully. Theoretical tips and techniques combined with demo tasks, especially for the writing and speaking sections make the lectures immersive. Students are encouraged to deliver their prompts during live lectures that allow the trainer to provide real-time feedback. Substantial practice examples, productive back and forth and timely suggestions culminate into a refined performance towards the end of a month and a half of the course duration.
                     </Text>
                 </Box> */}
             </Box >

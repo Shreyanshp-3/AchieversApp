@@ -64,7 +64,7 @@ export default function AboutUs() {
                         Welcome To Our Institute
                     </Heading>
                     <Text fontSize="md" color="gray.700" mb={6} textAlign="justify">
-                        In the dense overseas education industry, Achievers Academy stands tall with a formidable reputation, crafted over 25 years of immaculate counseling experience. An honest approach towards test prep, university shortlisting, and holistic application guidance, Achievers Academy continues in its journey of helping students realize their full potential and landing them opportunities that they truly deserve. So, your quest for a truly invested partner to guide you towards your overseas education dreams ends here.                    
+                        In the dense overseas education industry, Global Achievers stands tall with a formidable reputation, crafted over 25 years of immaculate counseling experience. An honest approach towards test prep, university shortlisting, and holistic application guidance, Global Achievers continues in its journey of helping students realize their full potential and landing them opportunities that they truly deserve. So, your quest for a truly invested partner to guide you towards your overseas education dreams ends here.                    
                     </Text>
                     <Text fontSize="md" color="gray.700" mb={6} textAlign="justify">
                         Thoroughly individual approach, personal accountability, and consistent mentorship have earned us tremendous credibility in the industry. Join us and experience reliable support every step of the way.                    

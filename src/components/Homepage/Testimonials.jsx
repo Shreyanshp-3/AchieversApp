@@ -20,9 +20,9 @@ const testimonials = [
       "ISAE-SUPAERO, France",
       "University of Illinois Urbana-Champaign, USA",
     ],
-    paragraph: `“From preparing for the GRE and TOEFL to receiving offers from the world’s top universities, Mrs. Pallavi Desai has been both an exceptional mentor and teacher. With Achievers Academy, I’ve been accepted into leading MS Aerospace Engineering programs at Stanford University, Georgia Tech, Purdue University, and UIUC in the US, as well as with a full scholarship at ISAE-SUPAERO in France.
+    paragraph: `“From preparing for the GRE and TOEFL to receiving offers from the world’s top universities, Mrs. Pallavi Desai has been both an exceptional mentor and teacher. With Global Achievers, I’ve been accepted into leading MS Aerospace Engineering programs at Stanford University, Georgia Tech, Purdue University, and UIUC in the US, as well as with a full scholarship at ISAE-SUPAERO in France.
 
-Mrs. Desai brings out the best in her students, helping us build strong, well-rounded profiles, and supporting us through every step, be it test prep, applications, or visa process, and even beyond. Every dream needs direction, and Achievers Academy gives you both.”`,
+Mrs. Desai brings out the best in her students, helping us build strong, well-rounded profiles, and supporting us through every step, be it test prep, applications, or visa process, and even beyond. Every dream needs direction, and Global Achievers gives you both.”`,
   },
   {
     name: "Viraj Parmaaj",
@@ -33,7 +33,7 @@ Mrs. Desai brings out the best in her students, helping us build strong, well-ro
       "University of Maryland College Park",
       "Northeastern University",
     ],
-    paragraph: `“Achievers Academy helped me go beyond just preparing for exams like GRE and TOEFL by teaching me the ‘correct’ approach for the exam using optimal strategy, which greatly helped in the verbal section. 
+    paragraph: `“Global Achievers helped me go beyond just preparing for exams like GRE and TOEFL by teaching me the ‘correct’ approach for the exam using optimal strategy, which greatly helped in the verbal section. 
 They constantly enlightened me with opportunities for profile building through relevant certifications, research outreach, and collaborative projects with our academy peers, which i believe was one of the culture practices that set Achievers apart.
 The application phase was intensive, a different process and set of questions for each college but with Pallavi Ma’am’s resolute guidance and patience over multiple SOP iterations to make it perfect, I was able to present my profile effectively, making my application stand out. Even the visa counselling, often overlooked, was handled step-by-step, from bookings to mock interviews, giving me full confidence during the actual event which can be rather daunting.”`,
   },
@@ -46,7 +46,7 @@ The application phase was intensive, a different process and set of questions fo
       "Boston University",
       "George Washington University (GWU)",
       "Indiana University Bloomington (IUB)",
-    ], paragraph: `“Joining Achievers Academy in my third year of engineering was the best decision I made for my MS journey. Pallavi ma’am’s GRE and TOEFL prep sessions were detailed and personal, with individual attention and tailored resources. Alongside this, she helped me build a strong profile through domain-relevant projects and certifications. When it came to shortlisting universities, her honest, student-first advice gave me confidence. Our LORs and SOPs were not templates, they were carefully crafted to tell my story. With her help, I secured admits from USC, Boston University, GWU, and IUB, even from a tier-3 undergraduate college background.”`,
+    ], paragraph: `“Joining Global Achievers in my third year of engineering was the best decision I made for my MS journey. Pallavi ma’am’s GRE and TOEFL prep sessions were detailed and personal, with individual attention and tailored resources. Alongside this, she helped me build a strong profile through domain-relevant projects and certifications. When it came to shortlisting universities, her honest, student-first advice gave me confidence. Our LORs and SOPs were not templates, they were carefully crafted to tell my story. With her help, I secured admits from USC, Boston University, GWU, and IUB, even from a tier-3 undergraduate college background.”`,
   },
   {
     name: "Prasad Vanne",
