@@ -64,9 +64,11 @@ export default function AboutUs() {
                         Welcome To Our Institute
                     </Heading>
                     <Text fontSize="md" color="gray.700" mb={6} textAlign="justify">
-                        In the dense overseas education industry, Achievers Academy stands tall with a formidable reputation, crafted over 25 years of immaculate counseling experience. An honest approach towards test prep, university shortlisting, and holistic application guidance, Achievers Academy continues in its journey of helping students realize their full potential and landing them opportunities that they truly deserve. So, your quest for a truly invested partner to guide you towards your overseas education dreams ends here.                    </Text>
+                        In the dense overseas education industry, Achievers Academy stands tall with a formidable reputation, crafted over 25 years of immaculate counseling experience. An honest approach towards test prep, university shortlisting, and holistic application guidance, Achievers Academy continues in its journey of helping students realize their full potential and landing them opportunities that they truly deserve. So, your quest for a truly invested partner to guide you towards your overseas education dreams ends here.                    
+                    </Text>
                     <Text fontSize="md" color="gray.700" mb={6} textAlign="justify">
-                        Thoroughly individual approach, personal accountability, and consistent mentorship have earned us tremendous credibility in the industry. Join us and experience reliable support every step of the way.                    </Text>
+                        Thoroughly individual approach, personal accountability, and consistent mentorship have earned us tremendous credibility in the industry. Join us and experience reliable support every step of the way.                    
+                    </Text>
 
                     {/* Stats */}
                     <Box bg="#edf1fc" py={5} px={{ base: 4, md: 20 }} borderRadius="md">
@@ -107,9 +109,9 @@ export default function AboutUs() {
                 <Heading fontSize="32px" color="blue.900" mb={8}>
                     Our Team
                 </Heading>
-                <Flex justify="center" gap={0} wrap="wrap">
+                <Flex justify="center" gap={{ base: 2, md: 20 }} wrap="wrap">
                     {/* Trainer 1 */}
-                    <Box maxW="300px" mx="auto" mb={8} textAlign="center" position="relative">
+                    <Box maxW="300px" mx={{ base: "auto", md: 0 }} mb={8} textAlign="center" position="relative">
                         <Box position="relative" w="180px" h="180px" mx="auto" mb={4}>
                             <Image
                                 src={ashviniImage}
@@ -159,20 +161,20 @@ export default function AboutUs() {
                             </svg>
                         </Box>
                         <Text mt={2} fontWeight="bold" fontSize="lg" color="gray.800" letterSpacing="1px">
-                            Pallavi Desai                        </Text>
+                            Pallavi Desai
+                        </Text>
                         <Text fontSize="md" color="gray.500" fontWeight="semibold" mb={2} letterSpacing="1px">
                             FOUNDER & CENTER HEAD
                         </Text>
                         <Box borderTop="2px solid #024877" w="60px" mx="auto" mb={2}></Box>
                         <center>
-
                             <Link href="https://www.linkedin.com/in/pallavi--desai/" isExternal color="#024877" fontSize="2xl">
                                 <FaLinkedin />
                             </Link>
                         </center>
                     </Box>
                     {/* Trainer 2 */}
-                    <Box maxW="300px" mx="auto" mb={8} textAlign="center" position="relative">
+                    <Box maxW="300px" mx={{ base: "auto", md: 0 }} mb={8} textAlign="center" position="relative">
                         <Box position="relative" w="180px" h="180px" mx="auto" mb={4}>
                             <Image
                                 src={vipulImage}
@@ -222,13 +224,13 @@ export default function AboutUs() {
                             </svg>
                         </Box>
                         <Text mt={2} fontWeight="bold" fontSize="lg" color="gray.800" letterSpacing="1px">
-                            Ananya Desai                        </Text>
+                            Ananya Desai
+                        </Text>
                         <Text fontSize="md" color="gray.500" fontWeight="semibold" mb={2} letterSpacing="1px">
                             BUSINESS STRATEGY AND OPERATIONS MANAGER
                         </Text>
                         <Box borderTop="2px solid #024877" w="60px" mx="auto" mb={2}></Box>
                         <center>
-
                             <Link href="https://www.linkedin.com/in/ananya-desai" isExternal color="#024877" fontSize="2xl">
                                 <FaLinkedin />
                             </Link>
@@ -237,7 +239,7 @@ export default function AboutUs() {
                 </Flex>
             </Box>
 
-            <Footer />
-        </Box>
-    );
-}
+                        <Footer />
+                    </Box>
+                );
+            }

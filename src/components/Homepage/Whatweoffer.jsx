@@ -1,6 +1,6 @@
 import { Box, Heading, Text, Image, IconButton, Flex } from "@chakra-ui/react";
 import { ArrowUpRight, ChevronLeft, ChevronRight } from "lucide-react";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import { NavLink } from "react-router-dom";
 
 import wwo from "../../theme/wwo1.png";
@@ -22,28 +22,38 @@ const offerings = [
     image: wwo2,
   },
   {
-    title: "VISA COUNSELING",
+    title: "VISA COUNSELLING",
     description:
-      "Our comprehensive approach is designed to help you navigate the college application process with confidence. Right from university applications to documentation we have got you covered.",
+      "We help students navigate the visa process with ease by providing support through mock interviews, concise guidance on financial documentation, and appointment scheduling services.",
     image: wwo4,
   },
   {
-    title: "APPLICATION COUNSELING",
+    title: "APPLICATION COUNSELLING",
     description:
-      "To help students navigate the visa process through mock interviews, concise financial documentation, and appointment bookings.",
+      "Our comprehensive approach is designed to help you navigate the college application process with confidence. Right from university applications to documentation we have got you covered.",
     image: wwo3,
   },
 ];
 
 export default function WhatWeOffer() {
   const scrollRef = useRef(null);
+  const [scrollIndex, setScrollIndex] = useState(0);
+
+  const visibleCards = 3;
+  const cardWidth = 350;
+  const gap = 24;
 
   const scroll = (direction) => {
-    const container = scrollRef.current;
-    if (container) {
-      const cardWidth = container.offsetWidth / 3;
-      container.scrollBy({
-        left: direction === "left" ? -cardWidth : cardWidth,
+    let newIndex = scrollIndex;
+    if (direction === "left" && scrollIndex > 0) {
+      newIndex = scrollIndex - 1;
+    } else if (direction === "right" && scrollIndex < offerings.length - visibleCards) {
+      newIndex = scrollIndex + 1;
+    }
+    setScrollIndex(newIndex);
+    if (scrollRef.current) {
+      scrollRef.current.scrollTo({
+        left: newIndex * (cardWidth + gap),
         behavior: "smooth",
       });
     }
@@ -63,11 +73,11 @@ export default function WhatWeOffer() {
 
       {/* Arrow Buttons */}
       <IconButton
-        icon={<ChevronLeft size={22} />}
+        icon={<ChevronLeft size={28} />}
         aria-label="Scroll Left"
         position="absolute"
-        left={1}
-        top="60%"
+        left={2}
+        top="50%"
         transform="translateY(-50%)"
         zIndex="2"
         bg="white"
@@ -75,14 +85,16 @@ export default function WhatWeOffer() {
         boxShadow="md"
         onClick={() => scroll("left")}
         display={{ base: "none", md: "flex" }}
+        disabled={scrollIndex === 0}
+        _disabled={{ opacity: 0.3, cursor: "not-allowed" }}
       />
 
       <IconButton
-        icon={<ChevronRight size={22} />}
+        icon={<ChevronRight size={28} />}
         aria-label="Scroll Right"
         position="absolute"
-        right={1}
-        top="60%"
+        right={2}
+        top="50%"
         transform="translateY(-50%)"
         zIndex="2"
         bg="white"
@@ -90,86 +102,102 @@ export default function WhatWeOffer() {
         boxShadow="md"
         onClick={() => scroll("right")}
         display={{ base: "none", md: "flex" }}
+        disabled={scrollIndex >= offerings.length - visibleCards}
+        _disabled={{ opacity: 0.3, cursor: "not-allowed" }}
       />
 
-      {/* Scrollable Offerings with padding & fixed widths */}
-      <Box px={{ base: 2, md: 8 }}>
+      <Box px={{ base: 2, md: 0 }}>
         <Flex
           ref={scrollRef}
           overflowX="auto"
           pb={1}
           scrollSnapType="x mandatory"
           scrollBehavior="smooth"
+          width={{ base: "100%", md: "1224px" }} // 3*350 + 2*24 + extra for spacing
+          maxWidth="100vw"
+          mx="auto"
+          style={{
+            scrollbarWidth: "none",
+            msOverflowStyle: "none",
+          }}
+          sx={{
+            "&::-webkit-scrollbar": { display: "none" },
+          }}
         >
           {offerings.map((item, index) => (
-            <Box
+            <NavLink
               key={index}
-              flex={{
-                base: "0 0 250px",
-                md: "0 0 calc(33.3333% - 16px)",
-              }}
-              mr={index !== offerings.length - 1 ? { base: 4, md: 6 } : 0}
-              height="350px"
-              position="relative"
-              borderRadius="lg"
-              overflow="hidden"
-              boxShadow="md"
-              scrollSnapAlign="center"
-              bg="gray.800"
-              transition="all 0.3s ease"
-              _hover={{
-                transform: "scale(1.03)",
-                boxShadow: "lg",
-                borderRadius: "lg",
-                overflow: "hidden",
-              }}
+              to={`/${item.title.replace(/\s+/g, '').toLowerCase()}`}
+              style={{ textDecoration: "none", color: "inherit" }}
             >
-              <Image
-                src={item.image}
-                alt={item.title}
-                objectFit="cover"
-                width="100%"
-                height="100%"
-                opacity={0.95}
-                transition="transform 0.5s ease"
-              />
-
               <Box
-                position="absolute"
-                top="0"
-                left="0"
-                width="100%"
-                height="100%"
-                bgGradient="linear(to-b, rgba(0,0,0,0.2), rgba(0,0,0,0.8))"
-                px={4}
-                py={5}
+                flex="0 0 350px"
+                mr={index !== offerings.length - 1 ? `${gap}px` : 0}
+                height="350px"
+                width="350px"
+                position="relative"
+                borderRadius="lg"
+                overflow="hidden"
+                boxShadow="md"
+                scrollSnapAlign="center"
+                bg="gray.800"
+                transition="all 0.3s ease"
+                _hover={{
+                  transform: "scale(1.03)",
+                  boxShadow: "lg",
+                  borderRadius: "lg",
+                  overflow: "hidden",
+                }}
                 display="flex"
                 flexDirection="column"
-                justifyContent="flex-end"
-                color="white"
+                as="div"
               >
-                <Text fontWeight="bold" fontSize="lg" mb={2}>
-                  <NavLink to={`/${item.title.replace(/\s+/g, '').toLowerCase()}`}>{item.title}</NavLink>
-                </Text>
-                <Text fontSize="sm">{item.description}</Text>
+                <Image
+                  src={item.image}
+                  alt={item.title}
+                  objectFit="cover"
+                  width="100%"
+                  height="100%"
+                  opacity={0.95}
+                  transition="transform 0.5s ease"
+                />
+
+                <Box
+                  position="absolute"
+                  top="0"
+                  left="0"
+                  width="100%"
+                  height="100%"
+                  bgGradient="linear(to-b, rgba(0,0,0,0.2), rgba(0,0,0,0.8))"
+                  px={4}
+                  py={5}
+                  display="flex"
+                  flexDirection="column"
+                  justifyContent="flex-end"
+                  color="white"
+                >
+                  <Text fontWeight="bold" fontSize="lg" mb={2} letterSpacing="0.5px">
+                    {item.title}
+                  </Text>
+                  <Text fontSize="sm">{item.description}</Text>
+                </Box>
+
+                <IconButton
+                  icon={<ArrowUpRight size={18} />}
+                  size="sm"
+                  variant="solid"
+                  colorScheme="whiteAlpha"
+                  position="absolute"
+                  top="3"
+                  right="3"
+                  aria-label="Open"
+                  borderRadius="full"
+                  bg="white"
+                  color="black"
+                  _hover={{ bg: "gray.200" }}
+                />
               </Box>
-
-              <IconButton
-                icon={<ArrowUpRight size={16} />}
-                size="sm"
-                variant="solid"
-                colorScheme="whiteAlpha"
-                position="absolute"
-                top="3"
-                right="3"
-                aria-label="Open"
-                borderRadius="full"
-                bg="white"
-                color="black"
-                _hover={{ bg: "gray.200" }}
-
-              />
-            </Box>
+            </NavLink>
           ))}
         </Flex>
       </Box>
