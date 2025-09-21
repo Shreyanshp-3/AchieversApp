@@ -9,6 +9,7 @@ import Tofel from './components/Services/TestPrep/Tests/Tofel';
 import Profilebuilding from './components/Services/ProfileBuilding/ProfileBuilding';
 import ApplicationCounseling from './components/Services/ApplicationCounseling/ApplicationCounseling';
 import VisaCounseling from './components/Services/VisaCounseling/VisaCounseling';
+import WhatWeOffer from "./components/Homepage/Whatweoffer";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Homepage />} />
         <Route path="/aboutus" element={<AboutUs />} />
+        <Route path="/whatweoffer" element={<WhatWeOffer />} />
         <Route path="/contactus" element={<Contactus />} />
         <Route path="/testprep" element={<Testprep />} />
         <Route path="/testprep/Gre" element={<Gre />} />
@@ -24,6 +26,7 @@ function App() {
         <Route path="/profilebuilding" element={<Profilebuilding />} />
         <Route path="/applicationcounseling" element={<ApplicationCounseling />} />
         <Route path="/visacounseling" element={<VisaCounseling />} />
+        
       </Routes>
     </Router>
   );

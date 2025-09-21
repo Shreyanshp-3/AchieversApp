@@ -105,9 +105,9 @@ export default function AboutUs() {
             {/* Our Trainers Section */}
             <Box px={{ base: 4, md: 16 }} pb={20} textAlign="center">
                 <Heading fontSize="32px" color="blue.900" mb={8}>
-                    Meet Our Trainers
+                    Our Team
                 </Heading>
-                <Flex justify="center" gap={10} wrap="wrap">
+                <Flex justify="center" gap={0} wrap="wrap">
                     {/* Trainer 1 */}
                     <Box maxW="300px" mx="auto" mb={8} textAlign="center" position="relative">
                         <Box position="relative" w="180px" h="180px" mx="auto" mb={4}>
@@ -136,7 +136,7 @@ export default function AboutUs() {
                                 <path
                                     d="M30,150 A90,90 0 0,1 150,30"
                                     fill="none"
-                                    stroke="#8B1F3B"
+                                    stroke="#024877"
                                     strokeWidth="10"
                                     strokeLinecap="round"
                                 />
@@ -152,7 +152,7 @@ export default function AboutUs() {
                                 <path
                                     d="M30,150 A90,90 0 0,1 90,170"
                                     fill="none"
-                                    stroke="#8B1F3B"
+                                    stroke="#024877"
                                     strokeWidth="10"
                                     strokeLinecap="round"
                                 />
@@ -163,10 +163,10 @@ export default function AboutUs() {
                         <Text fontSize="md" color="gray.500" fontWeight="semibold" mb={2} letterSpacing="1px">
                             FOUNDER & CENTER HEAD
                         </Text>
-                        <Box borderTop="2px solid #8B1F3B" w="60px" mx="auto" mb={2}></Box>
+                        <Box borderTop="2px solid #024877" w="60px" mx="auto" mb={2}></Box>
                         <center>
 
-                            <Link href="https://www.linkedin.com/in/pallavi--desai/" isExternal color="#8B1F3B" fontSize="2xl">
+                            <Link href="https://www.linkedin.com/in/pallavi--desai/" isExternal color="#024877" fontSize="2xl">
                                 <FaLinkedin />
                             </Link>
                         </center>
@@ -215,7 +215,7 @@ export default function AboutUs() {
                                 <path
                                     d="M30,150 A90,90 0 0,1 90,170"
                                     fill="none"
-                                    stroke="#8B1F3B"
+                                    stroke="#024877"
                                     strokeWidth="10"
                                     strokeLinecap="round"
                                 />
@@ -224,12 +224,12 @@ export default function AboutUs() {
                         <Text mt={2} fontWeight="bold" fontSize="lg" color="gray.800" letterSpacing="1px">
                             Ananya Desai                        </Text>
                         <Text fontSize="md" color="gray.500" fontWeight="semibold" mb={2} letterSpacing="1px">
-                            BUSINESS STRATEGY AND OPERATIONS ASSOCIATE
+                            BUSINESS STRATEGY AND OPERATIONS MANAGER
                         </Text>
-                        <Box borderTop="2px solid #8B1F3B" w="60px" mx="auto" mb={2}></Box>
+                        <Box borderTop="2px solid #024877" w="60px" mx="auto" mb={2}></Box>
                         <center>
 
-                            <Link href="https://www.linkedin.com/in/ananya-desai" isExternal color="#8B1F3B" fontSize="2xl">
+                            <Link href="https://www.linkedin.com/in/ananya-desai" isExternal color="#024877" fontSize="2xl">
                                 <FaLinkedin />
                             </Link>
                         </center>

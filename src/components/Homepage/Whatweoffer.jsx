@@ -1,6 +1,7 @@
 import { Box, Heading, Text, Image, IconButton, Flex } from "@chakra-ui/react";
 import { ArrowUpRight, ChevronLeft, ChevronRight } from "lucide-react";
 import { useRef } from "react";
+import { NavLink } from "react-router-dom";
 
 import wwo from "../../theme/wwo1.png";
 import wwo2 from "../../theme/wwo2.png";
@@ -21,13 +22,13 @@ const offerings = [
     image: wwo2,
   },
   {
-    title: "VISA COUNSELLING",
+    title: "VISA COUNSELING",
     description:
       "Our comprehensive approach is designed to help you navigate the college application process with confidence. Right from university applications to documentation we have got you covered.",
     image: wwo4,
   },
   {
-    title: "APPLICATION COUNSELLING",
+    title: "APPLICATION COUNSELING",
     description:
       "To help students navigate the visa process through mock interviews, concise financial documentation, and appointment bookings.",
     image: wwo3,
@@ -148,7 +149,7 @@ export default function WhatWeOffer() {
                 color="white"
               >
                 <Text fontWeight="bold" fontSize="lg" mb={2}>
-                  {item.title}
+                  <NavLink to={`/${item.title.replace(/\s+/g, '').toLowerCase()}`}>{item.title}</NavLink>
                 </Text>
                 <Text fontSize="sm">{item.description}</Text>
               </Box>
@@ -166,6 +167,7 @@ export default function WhatWeOffer() {
                 bg="white"
                 color="black"
                 _hover={{ bg: "gray.200" }}
+
               />
             </Box>
           ))}
