@@ -22,13 +22,13 @@ const offerings = [
     image: wwo2,
   },
   {
-    title: "VISA COUNSELLING",
+    title: "VISA COUNSELING",
     description:
       "We help students navigate the visa process with ease by providing support through mock interviews, concise guidance on financial documentation, and appointment scheduling services.",
     image: wwo4,
   },
   {
-    title: "APPLICATION COUNSELLING",
+    title: "APPLICATION COUNSELING",
     description:
       "Our comprehensive approach is designed to help you navigate the college application process with confidence. Right from university applications to documentation we have got you covered.",
     image: wwo3,

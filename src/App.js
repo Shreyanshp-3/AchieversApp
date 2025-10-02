@@ -10,10 +10,12 @@ import Profilebuilding from './components/Services/ProfileBuilding/ProfileBuildi
 import ApplicationCounseling from './components/Services/ApplicationCounseling/ApplicationCounseling';
 import VisaCounseling from './components/Services/VisaCounseling/VisaCounseling';
 import WhatWeOffer from "./components/Homepage/Whatweoffer";
+import ScrollToTop from "./scrolltotop";  // ✅ import
 
 function App() {
   return (
     <Router>
+      <ScrollToTop />   {/* ✅ add here */}
       <Routes>
         <Route path="/" element={<Homepage />} />
         <Route path="/aboutus" element={<AboutUs />} />
@@ -26,7 +28,6 @@ function App() {
         <Route path="/profilebuilding" element={<Profilebuilding />} />
         <Route path="/applicationcounseling" element={<ApplicationCounseling />} />
         <Route path="/visacounseling" element={<VisaCounseling />} />
-        
       </Routes>
     </Router>
   );
