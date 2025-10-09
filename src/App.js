@@ -11,8 +11,17 @@ import ApplicationCounseling from './components/Services/ApplicationCounseling/A
 import VisaCounseling from './components/Services/VisaCounseling/VisaCounseling';
 import WhatWeOffer from "./components/Homepage/Whatweoffer";
 import ScrollToTop from "./scrolltotop";  // ✅ import
+import { useEffect } from "react";
 
-function App() {
+function App() 
+{
+  useEffect(() => {
+    if (performance.navigation.type === 1) {
+      // 1 = reload
+      window.location.href = "/";
+    }
+  }, []);
+
   return (
     <Router>
       <ScrollToTop />   {/* ✅ add here */}
